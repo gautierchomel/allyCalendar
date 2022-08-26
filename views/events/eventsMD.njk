@@ -1,0 +1,64 @@
+---
+pagination: 
+  data: collections.eventsMD
+  size: 1
+  alias: event
+permalink: "/event/{{event.data.id}}/"
+class: "event-page"
+---
+
+
+{% from "_partials/categories.njk" import setCategory %}
+
+{% extends "base.njk" %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+   <header class="topMenu">
+      {% include "_partials/menu.njk" %}
+    </header>
+  <main>
+ 
+    {% if event.data.title != null %}
+      <section class="modal">
+        <p class="time">
+          <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span>
+          <span class="daynum">{{event.data.fullTime | formatDate("UTC", "DD")}}</span>
+          <span class="hour">{{event.data.fullTime | formatDate("UTC", "LT")}}</span>
+          <span class="tz">{{event.data.fullTime | formatDate("UTC", "z")}}</span>
+        </p>
+        <figure>
+          {% if event.data.images.length > 0 %}
+            <img src="/data/events/images/{{event.data.images[0].hash}}{{event.data.images[0].ext}}"/>
+          {% else %}
+
+          {% endif %}
+        </figure>
+        <div class="event-meta">
+
+          <aside class="event-content">
+            <div class="event-meta">
+              <p class="dl-ics">
+                <a href="/data/events/ics/event-{{event.data.id}}.ics">Add to your calendar</a>
+              </p>
+
+              {{ setCategory(event.data.category) }}
+             
+            </div>
+          </aside>
+        </div>
+        <div class="event-text">
+          <h3 class="event-title">{{event.data.title | markdownify | replace("<p>", "") | replace("</p>", "") | safe }}</h3>
+          {% if event.templateContent %}
+            <div class="description">{{event.templateContent | markdownify | safe }}</div>
+          {% endif %}
+          <p class="link">
+            <a href="{{event.data.url}}">{{event.data.url}}</a>
+          </p>
+          <p class="from">{{event.data.username}}</p>
+        </section>
+      </main>
+    {% endif %}
+
+  {% endblock %}

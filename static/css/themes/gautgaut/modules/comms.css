@@ -1,0 +1,36 @@
+.comms .background {
+    display: none;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(1px,1fr));
+    padding: 3em;
+    gap: 20px 8em;
+}
+
+@media screen and (max-width: 800px) {
+    .gallery {
+    grid-template-columns: repeat(5,minmax(1px,1fr));
+
+    }
+}
+@media screen and (max-width: 600px) {
+    .gallery {
+        display: block; 
+    /* grid-template-columns: repeat(1,minmax(1px,1fr)); */
+
+    }
+}
+
+
+.gallery img, .gallery video { border: 2px solid lightblue ; margin: 0; padding: 0;}
+
+
+.gallery a {font-size: .7em;}
+
+.comms main {
+    margin: 0;
+    max-width: unset;
+}
+ 

@@ -1,0 +1,137 @@
+{% extends "base.njk" %}
+
+{% block bodyattribute %}{% endblock %}
+
+{% block styles %}{% endblock %}
+
+{% block menu %}
+    <header class="topMenu">
+        <a href="/">{% include "_partials/brand.njk" %}</a>
+        <div class="pull-rebuild" style="display: none;">
+            <a class="button" href="{{config.manageServer}}/pullDaRepo/">Pull the repo</a>
+            <a class="button" href="{{config.manageServer}}/rebuild/">Rebuild the website</a>
+        </div>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+    <main>
+
+        {% include "_partials/loader.njk" %}
+        <section>
+            <h1>Manage the website</h1>
+
+            <form class="form" >
+                <label>
+                    <span>name</span>
+                    <input id="username" type="text"/>
+                </label>
+                <label>
+                    <span>password</span>
+                    <input  id="password" type="password"/>
+                </label>
+
+                <button id="submit" type="button">fetch</button>
+
+            </form>
+            <section class="login-error"></section>
+        </section>
+
+        <div class="hide">
+
+            {# manage participants #}
+            <section class="manage-participants">
+                <h2>Manage Attendees </h2>
+
+                <div class="tools">
+
+                    <input class="participant-checkbox" data-participant-type="nulled-user" type="checkbox" id="showNull" name="showEventNull" checked="checked" value="on">
+                    <label class="radio" for="showNull">Show new entries</label>
+
+                    <input class="participant-checkbox" data-participant-type="accepted-user" type="checkbox" id="showAccepted" name="showAccepted">
+                    <label class="radio" for="showAccepted">Show accepted entries</label>
+
+                    <input class="participant-checkbox" data-participant-type="refused-user" type="checkbox" id="showRefused" name="showRefused">
+                    <label class="radio" for="showRefused">Show refused entries</label>
+
+                    <div class="search">
+                        <label class="lookingfor">
+                            <span>Are you looking for someone?</span>
+                            <input type="text" id="search" placeholder="search for names.."></label>
+
+                    </div>
+                </div>
+
+                {# <p class="noNews">There is no new entry to manage.</p> #}
+
+                <ul class="response-participants"></ul>
+
+            </section>
+
+            <section class="manage-events">
+
+                {# for each event #
+                - accept event 
+                - change date 
+                - add category 
+                - add link 
+                - add archive 
+                #}
+
+                <h2>Manage events</h2>
+                <div class="tools">
+                    <div class="tool">
+                        <input class="event-checkbox" data-event-type="nulled-event" type="checkbox" id="showEventNull" name="showEventNull" >
+                        <label class="radio" for="showEventNull">Show new events</label>
+                    </div>
+
+                    <div class="tool">
+                        <input class="event-checkbox" data-event-type="toUpdate" type="checkbox" id="showToUpdate" name="showToUpdate" >
+                        <label class="radio" for="showToUpdate">Show events to update</label>
+                        <div class="tool">
+
+                            <input class="archivedUpdate"  type="checkbox" id="showArchivedUpdates" name="showArchivedUpdates">
+                            <label class="radio" for="showArchivedUpdates">Show archived updates</label>
+
+                        </div>
+                    </div>
+                    <div class="tool">
+
+                        <input class="noRUL" type="checkbox" id="showEventWithNoURL" name="showEventWithNoURL">
+                        <label class="radio" for="showEventWithNoURL">Show event with no link</label>
+                    </div>
+
+                    <div class="tool">
+
+                        <input class="event-checkbox" data-event-type="accepted-event" type="checkbox" id="showEventAccepted" name="showEventAccepted">
+                        <label class="radio" for="showEventAccepted">Show accepted events</label>
+                    </div>
+
+                    <div class="tool">
+
+                        <input class="event-checkbox" data-event-type="refused-event" type="checkbox" id="showEventRefused" name="showEventRefused">
+                        <label class="radio" for="showEventRefused">Show refused events</label>
+                    </div>
+
+                    <div class="search">
+                        <label class="lookingfor">
+                            <span>Are you looking for an event?</span>
+                            <input type="text" id="searchEvents" placeholder="search for names.."></label>
+
+                    </div>
+                </div>
+                <ul class="response-events"></ul>
+
+            </section>
+
+            {# manage archives #}
+        </div>
+    </main>
+
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="/js/manage.js"></script>
+
+{% endblock %}

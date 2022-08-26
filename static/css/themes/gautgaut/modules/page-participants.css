@@ -1,0 +1,7 @@
+.attendees h1 {
+  text-transform: none;
+  background: var(--white);
+  display: inline-block;
+  margin-top: 3em;
+  grid-column: 2;
+}

@@ -1,0 +1,25 @@
+{% extends "base.njk" %}
+{% block menu %}{% endblock %}
+
+{% block content %}
+  <header class="topMenu">
+    {% include "_partials/menu.njk" %}
+  </header>
+  <main>
+
+    <section>
+
+      {{ content | safe }}
+
+      {% for post in collections.post -%}
+        <article>
+          <h2 id="{{post.data.title | slug}}">{{post.data.title}}</h2>
+          {{ post.data.content | safe }}
+        </article>
+        {# <hr> #}
+      {%- endfor %}
+
+    </section>
+
+  </main>
+{% endblock %}

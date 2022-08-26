@@ -1,0 +1,7 @@
+[lang="ar"] {
+  .event-meta,
+  .event-text {
+    direction: rtl;
+    text-align: right;
+  }
+}

@@ -1,0 +1,57 @@
+{
+    "siteTitle": "",
+    "siteBaseline": "",
+    "adminName": "",
+    "adminEmail": "",
+    "siteLang": "en",
+    "siteURL" : "",
+    "theme": "gautgaut",
+    "meeting": {
+        "singleURL": ""
+    },
+    "calendarDataSource": "markdown",
+    "calendarYearShown": ["2021", "2022", "2023"],
+    "calendarDates": {
+        "start": "2021-01-01",
+        "end": "2021-12-31"
+    },
+    "singlePage": false,
+    "speakerList": false,
+    "categories": [
+        "Demo",
+        "Performance",
+        "Discussion",
+        "Workflows",
+        "Builders",
+        "Workshop",
+        "Fireside Chats"
+    ],
+    "topBar": {
+        "title": "",
+        "subtitle": "",
+        "showAbout": true,
+        "showArchives": true,
+        "showAttendees": true,
+        "showBlog": false,
+        "showForm": true,
+        "showCalendar": true,
+        "showGuestForm": true,
+        "showTimezoneSelect": false,
+        "logo": ""
+},
+    "calButtons": {
+        "showCategories": true,
+        "showTimezoneSelect": true,
+        "showSearch": true
+    },
+    "assets": {
+        "logo": "",
+        "imgPlaceHolder": "",
+        "categoryIcon": "",
+        "calEventBackground": "",
+        "background": "",
+        "opaLogo": ""
+    }
+}
+
+

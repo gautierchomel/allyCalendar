@@ -1,0 +1,10 @@
+{
+    "calendarTitle": {
+      "fr": "Les événements",
+      "en": "Calendar"
+    },
+    "speakerList": {
+        "fr": "Liste des intervenants",
+        "en": "speakerList"
+    }
+}

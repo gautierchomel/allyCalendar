@@ -1,0 +1,139 @@
+
+#archives button.fullscreen, #archives button.closeVid  {
+  padding: 0.3em 0.3em 0.1em 0.3em;
+  text-transform: uppercase;
+  background: var(--color-category);
+  color: var(--white);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0px 2px var(--color-category);
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 1em;
+}
+#archives button.fullscreen:hover,  #archives button.closeVid:hover {
+  --color-category: var(--black);
+}
+
+.scalelite iframe {
+  display: none;
+}
+
+.scalelite .fullscreen-vid iframe {
+  display: block;
+}
+
+.fullscreen-vid iframe {
+  /* width: 100%; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 4em;
+  width: calc(100vw - 8em);
+  height: calc(100vh - 8em);
+  box-shadow: 0 0 0 5em rgb(0,0,0,0.9);
+  display: block;
+  z-index: 999999999999999999999;
+  display: block;
+}
+.fullscreen-vid .closeVid {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  display: block;
+  z-index: 9999999999999999999999;
+
+}
+#archives {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  grid-column: span 2;
+  width: 100%;
+}
+
+#archives {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#archives .archive-event {
+  
+  border: 2px solid var(--color-category);
+  padding: 2ch;
+}
+#archives h3 {
+  color: var(--color-category);
+  grid-column: span 1;
+}
+#archives .archive-event .description {
+  display: none;
+}
+#archives .video-embed {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+#archives .video-embed iframe {
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* 4x3 Aspect Ratio */
+.iframe-container-4x3 {
+  padding-top: 75%;
+}
+
+@media screen and (max-width: 1200px) {
+  #archives {
+    grid-template-columns: 1fr 1fr;
+  }
+  #archives .archive-event {
+    grid-template-columns:  100%;
+  }
+}
+
+@media screen and (max-width: 1068px) {
+
+  .attendees header {
+    /* width: 80%; */
+    margin: 0 auto;
+  }
+  nav {
+    position: unset;
+    align-content: center;
+    margin-bottom: 2em;
+    display: block;
+  }
+  .attendees .lookingFor {
+    top: 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  #archives {
+    grid-template-columns: 100%;
+  }  
+}
+@media screen and (max-width: 600px) {
+
+  #archives .archive-event {
+    /* grid-template-columns: 1fr; */
+    /* border-top: 4px solid var(--color-category); */
+  }
+}
+
+
+.attendees.splash p:nth-of-type(3) {
+  font-size: inherit;
+}
+
+#archives .participants  {
+  font-size: .8em;
+}

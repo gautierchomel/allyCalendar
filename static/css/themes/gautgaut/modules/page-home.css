@@ -1,0 +1,133 @@
+
+/* menu */
+.home nav {
+  justify-content: center;
+  padding: 0;
+  flex-wrap: wrap;
+  display: flex;
+  font-family: var(--font-interface);
+
+  ul {
+    justify-content: space-around;
+
+    li {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  header {
+    margin: 0;
+    background: transparent;
+    position: unset;
+  }
+}
+
+.home h1 {
+  display: none;
+}
+
+.home header {
+  text-align: center;
+}
+
+.home .text .cover {
+  width: 80%;
+  height: auto;
+}
+
+.home .text {
+  nav {
+    font-size: 0.9em;
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      display: flex; 
+      /* justify-content: flex-start; */
+      justify-content: center;
+      flex-wrap: wrap;
+
+      li {
+        margin-right: 2ch;
+        margin-top: 0.5em;
+      }
+    }
+  }
+}
+
+.home .text {
+  /* background: var(--color-content-background);
+  border: 3px solid var(--color-thinstroke);
+  box-shadow: 0 0 0 2em var(--color-stroke); */
+
+  background: var(--color-content-background);
+  border: 16px solid var(--color-body);
+
+  position: relative;
+  font-size: 1em;
+  line-height: 1.4;
+  padding: 2em 4ch;
+  font-weight: 400;
+  min-width: 400px;
+  max-width: 500px;
+  width: 40vw;
+  margin-left: 10vw;
+  
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-align: left;
+    font-weight: 400;
+  }
+}
+
+.home header {
+  display: block;
+  padding: 0;
+
+  h1 {
+    margin: 0;
+    /* font-family: var(--font-title); */
+    line-height: 1;
+  }
+
+  p {
+    font-size: 1em;
+    margin: 0;
+  }
+}
+
+.home main header {
+  position: unset;
+}
+
+@media screen and (max-width: 800px) {
+  .home .text {
+    font-size: 1em;
+    margin: 0 auto;
+    width: 80vw;
+  }
+
+  .text {
+  }
+}
+
+.home .text .site-baseline {
+  font-size: 1.6em;
+  font-weight: 600;
+  text-align: center;
+  margin-top: .3em;
+  text-transform: uppercase;
+}
+
+
+.home .text .bigger {
+  font-size: calc(1em + .2vw);
+  white-space: pre;
+  text-align: center;
+  width: 120%;
+  margin-left: -10%;
+}

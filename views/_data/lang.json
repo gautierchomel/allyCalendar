@@ -1,0 +1,10 @@
+{
+    "fr": {
+        "timezone" : "Choisissez votre fuseau horaire",
+        "eventTitle": "Communications"
+    },
+    "en": {
+        "timezone" : "Choose your timezone",
+        "eventTitle": "The events"
+    }
+}

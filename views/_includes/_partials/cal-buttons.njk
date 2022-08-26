@@ -1,0 +1,31 @@
+{% if config.calButtons.showTimezoneSelect == true %}
+
+  <div class="button-timezones">
+    <label for="timezoneSelect">Choose your timezone</label>
+    <select name="timezoneSelect" id="timezoneSelect" disabled>
+      {% include "_partials/timezoneSelectorOptions.njk" %}
+    </select>
+  </div>
+{% endif %}
+
+{% if config.calButtons.showSearch == true %}
+  <div class="button-search">
+    <label class="lookingfor" for="search">Search for an event</label>
+    <input type="text" id="search" name="search"  placeholder="search for language, keyword, participants, etc" disabled>
+  </div>
+{% endif %}
+
+{% if config.calButtons.showCategories == true %}
+  <ul id="categories">
+    {% for category in config.categories %}
+      <li data-cat="{{category | replace(" ", "-") | toLowerCase}}" style="--color-category:var(--color-{{category | replace(" ", "-") | toLowerCase }})">
+        {% if config.assets.categoryIcon %}
+          <span class="icon">
+            {{ config.assets.categoryIcon | safe}}
+          </span>
+        {% endif %}
+        <span class="categories-name">{{category}}</span>
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}

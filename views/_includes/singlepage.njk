@@ -1,0 +1,20 @@
+{% extends "base.njk" %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block content %}
+    {% include "_partials/header.njk" %}
+
+<main>
+    <section class="content">
+        <article>
+        <h1>{{ title  }}</h1>
+
+        {{ content | safe }}
+        </article>
+        <script src="/js/main.js"></script>
+    </section>
+</main>
+{% endblock %}

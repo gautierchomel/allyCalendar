@@ -1,0 +1,125 @@
+{% extends "base.njk" %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+    {% include "_partials/header.njk" %}
+
+    <main>
+        <section class="content">
+            {{ content | safe}}
+            <form enctype="multipart/form-data" id="form" METHOD="post">
+                <label>
+                    <span>Your Name</span>
+                    <input placeholder="Elizabeth Caslon" type="text" name="username" required/>
+                    <span></span>
+                </label>
+                <label>
+                    <span>Your email</span>
+                    <input placeholder="lizbeth@caslon.foundry" type="email" name="usermail" required/>
+                    <span></span>
+                </label>
+                <label>
+                    <span class="question">Do you agree to share your e-mail on the Open Publishing Festival website, so people can get in touch?</span>
+                </label>
+                <input type="radio" id="shareUserNameTrue" name="shareUserName" value="true">
+                <label class="radio" for="shareUserNameTrue">Yes I’ll share my e-mail</label>
+                <input type="radio" id="shareUserNameFalse" name="shareUserName" value="false">
+                <label class="radio" for="shareUserNameFalse">No, I don’t want to share my email</label>
+                <label>
+                    <span>Social account. Please follow this pattern: <br/>“twitter: @some, instagram: @some”</span>
+                    <input placeholder="twitter: @lizCadlonFondry, instagram: @lizCadlonFondry" type="text" name="socialAccount"/>
+                    <span></span>
+                </label>
+
+                <input type="radio" id="shareSocialAccountTrue" name="shareSocialAccount" value="true">
+                <label class="radio" for="shareSocialAccountTrue">Yes I’ll share my social accounts</label>
+                <input type="radio" id="shareSocialAccountFalse" name="shareSocialAccount" value="false">
+                <label class="radio" for="shareSocialAccountFalse">No, I don’t want to share my social accounts</label>
+                <label>
+                    <span>Title of the event</span>
+                    <input placeholder="i typeset therefore i am" type="text" name="title" required/>
+                    <span></span>
+                </label>
+                <label>
+                    <span>Keywords for the events <br>
+                        <small>eg. Open Content, Open Software, Open Childrens Books, etc.</small>
+                    </span>
+                    <input type="text" name="tags" placeholder="eg Open Content, Open Software, Open Childrens Books, Micropublications, Open Access, etc."/>
+                    <span></span>
+                </label>
+                <label>
+                    <span>Associated image <br/>
+                        <small>supported formats: jpg, png, svg, gif, max. 2mb</small>
+                    </span>
+                    <input id="images" type="file" name="files.images" multiple/>
+                </label>
+                <label>
+                    <span>Participants</span>
+                    <textarea placeholder="Lizbeth Caslon, Eliz Caslon" type="text" name="participant"></textarea>
+                    <span></span>
+                </label>
+                <label>
+                    <span>Description</span>
+                    <textarea placeholder="Together we’ll print like we used to do, before letters were made of numbers" name="description" required></textarea>
+                </label>
+                <label>
+                    <span>Language</span>
+                    <input placeholder="esperanto" type="text" name="language"/>
+                    <span></span>
+                </label>
+                <label>
+                    <span>URL of the project (if any)</span>
+                    <input type="text" placeholder="www.myproject.com" name="projectUrl">
+                </label>
+                <label>
+                    <span>Public Link to Stream, Video Conference, etc. <small>(leave it empty if you don’t know it yet, and take contact with the org when you have it ready.)</small>
+                    </span>
+                    <input name="url" type="text" placeholder="https://www.something.service"/>
+                </label>
+                 <label>
+                    <span>Instructions to join the event (registrations, etc.) <small>(leave it empty if there is none)</small>
+                    </span>
+                    <textarea name="urlinstructions"></textarea>
+                </label>
+                <label>
+                    <span>Date <small>(YYYY-MM-DD)</small>
+                    </span>
+                    <input type="date" name="date" min="{{config.calendarDates.start}}" max="{{config.calendarDates.end}}" value="{{config.calendarDates.start}}"/>
+                    <span></span>
+                </label>
+                <label>
+                    <span>Time <small>(HH:MM)</small>
+                    </span>
+                    <input type="time" name="time" value="10:00"/>
+                    <span></span>
+                </label>
+                <label>
+                    <span>Timezone</span>
+                    <select name="timezone" id="timezoneSelect">
+                        {% include "_partials/timezoneSelectorOptions.njk" %}
+                    </select>
+                </label>
+                <label>
+                    <span>Do you want to add something else?</span>
+                    <textarea name="more"></textarea>
+                </label>
+                {# <label for="">
+                    <input type="checkbox" required>
+                <span>I’ll make sure that the event will be nice and cool, and lovely :D</span></input>
+                </label> #}
+                <label style="opacity: var(--hidden)">
+                    <span>don’t fill</span>
+                    <input type="hidden" autocomplete="off" name="enrico" aria-label="Please do not fill this in" class="nah"/>
+                </label>
+
+                <input type="submit" id="submit" value="submit"/>
+            </form>
+        </section>
+    </main>
+    <iframe name="hiddenFrame" class="hideframe"></iframe>
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="/js/form.js"></script>
+{% endblock %}

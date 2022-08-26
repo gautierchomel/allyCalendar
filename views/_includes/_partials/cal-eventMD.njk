@@ -1,0 +1,94 @@
+<li   {% if event.descriptionLang != "null" %}lang="{{event.descriptionLang}}"{% endif %} style="{% if event.data.category != null %}--color-category: var(--color-{{event.data.category}}){% else  %}--color-category: var(--color-primary){% endif %}" class="event {% if event.data.category %}event-{{event.data.category}}{% endif %} {% if event.data.accept != true %}refused{% endif %}" data-fulltime="{{event.data.fullTime}}">
+    {# TODO: keyboard nav #}
+    {# note the singular event in the url to differenciate JSON / Markdown #}
+    <a href="/event/{{event.data.id}}/" class="acc"></a>
+    <div class="back">{{config.assets.calEventBackground | safe}}</div>
+    <section class="modal" id="event-{{event.data.id}}" {% if event.data.htmllang %}lang="{{event.data.htmllang}}"{% endif %}>
+        <button class="close">×</button>
+        <p class="time">
+            <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span>
+            <span class="daynum">{{event.data.fullTime | formatDate("UTC", "DD")}}</span>
+            <span class="hour">{{event.data.fullTime | formatDate("UTC", "LT")}}</span>
+            <span class="tz">{{event.data.fullTime | formatDate("UTC", "z")}}</span></p>
+        <figure>
+            {% if event.data.images.length > 0 %}
+                <img src="/data/events/images/{{event.data.images[0].hash}}{{event.data.images[0].ext}}"/>
+            {% else %}
+                {{config.assets.imgPlaceHolder}}
+            {% endif %}
+        </figure>
+
+        <aside class="event-content">
+            <div class="event-meta">
+                <p class="dl-ics">
+                    <a href="/data/events/ics/event-{{event.data.id}}.ics">Add to your calendar</a>
+                </p>
+                {% for categorie in config.categories %}
+                    {% if event.data.category == categorie.id %}
+                        <p class="category">
+                            {% if config.assets.categoryIcon %}
+                                <span class="category-icon">{{ config.assets.categoryIcon | safe}}</span>
+                            {% endif %}
+
+                            {% if event.data.category %}
+                                <span class="category-name">{{ categorie.name | safe}}</span>
+                            {% else %}
+                                This event is not curated yet
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                {% endfor %}
+
+                {% if event.data.language != null %}
+                    <p class="langs">
+                        {% for lang in event.data.language %}
+                            <span class="lang">{{lang}}</span>,
+                        {% endfor %}
+                    </p>
+                {% endif %}
+
+                {% if event.data.tags != null%}
+                    <p class="tags">
+                        {% for tag in event.data.tags %}
+                            {% if tag != "event" %}
+                                <span class="tag">{{tag}}</span>
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+                {% endif %}
+
+            </div>
+            <div class="event-text">
+                <h3 class="event-title">{{event.data.title | markdownify | replace("<p>", "") | replace("</p>", "") | safe }}</h3>
+
+                {% if event.templateContent %}
+
+                    <section class="description">{{event.templateContent | markdownify | safe }}
+
+                        <p class="link">
+                            {% if config.meeting.singleURL == false %}
+
+                                <a href="{{event.data.url}}">{{event.data.url}}</a>
+
+                            {% else  %}
+
+                                <a href="{{config.meeting.singleURL}}">{{config.meeting.singleURL}}</a>
+
+                            {% endif %}
+
+                        </p>
+                        <p class="from">{{event.data.username}}</p>
+                        {% if event.socialAccount != null %}
+
+                            <ul class="socials">
+                                {{event.socialAccount | separateServices | safe}}
+                        </ul>
+                    {% endif %}
+                </section>
+
+            {% endif %}
+</div>
+        </aside>
+
+    </section>
+</li>

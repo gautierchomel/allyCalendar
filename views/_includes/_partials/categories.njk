@@ -1,0 +1,30 @@
+{% macro createCategoriesList(color, name) %}
+
+  {% if config.assets.categoryIcon %}
+    <span class="icon">
+      {{ config.assets.categoryIcon | safe}}
+    </span>
+  {% endif %}
+  {% if name %}
+    <span class="categories-name">{{name}}</span>
+  {% else %}
+  {% endif %}
+
+{% endmacro %}
+
+{% macro setCategory(name) %}
+  <p class="category">
+
+    {% if config.assets.categoryIcon %}
+      <span class="category-icon">
+        {{ config.assets.categoryIcon | safe}}
+      </span>
+    {% endif %}
+
+    {% for categorie in config.categories %}
+      {% if name == categorie.id %}
+        {{ categorie.name }}
+      {% endif %}
+    {% endfor %}
+  </p>
+{% endmacro %}

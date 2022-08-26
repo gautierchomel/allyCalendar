@@ -1,0 +1,28 @@
+{% extends "base.njk" %}
+
+{% block menu %}
+    
+{% endblock %}
+
+{% block content %}
+<main class="text">   
+    <header>
+        {% if config.assets.logo %}
+            {{ config.assets.logo | safe}}
+        {% endif %} 
+        <h1 class="site-title">{{config.siteTitle}}</h1>
+        {% if config.siteBaseline != "" %}    
+        <p class="site-baseline">{{config.siteBaseline}}</p>
+        {% endif %}
+    </header>
+
+
+<div class="intro">
+    {{ content | safe }}
+    
+    {% include "_partials/nav.njk" %}
+
+    {# <script type="module" src="/js/main.js"></script> #}
+
+</main>
+{% endblock %}

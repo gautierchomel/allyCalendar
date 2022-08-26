@@ -1,0 +1,21 @@
+/* relative for build?
+chck: https://github.com/snowpackjs/snowpack/discussions/1693 */
+
+@import "/static/css/themes/opf2019/modules/fonts.css";
+@import "/static/css/themes/opf2019/modules/reset.css";
+@import "/static/css/themes/opf2019/modules/variables.css";
+@import "/static/css/themes/opf2019/modules/text.css";
+@import "/static/css/themes/opf2019/modules/structure.css";
+@import "/static/css/themes/opf2019/modules/top-bar.css";
+@import "/static/css/themes/opf2019/modules/blog.css";
+@import "/static/css/themes/opf2019/modules/form.css";
+@import "/static/css/themes/opf2019/modules/lang.css";
+@import "/static/css/themes/opf2019/modules/calendar.css";
+@import "/static/css/themes/opf2019/modules/page-home.css";
+@import "/static/css/themes/opf2019/modules/page-blog.css";
+@import "/static/css/themes/opf2019/modules/page-attendees.css";
+@import "/static/css/themes/opf2019/modules/page-participants.css";
+@import "/static/css/themes/opf2019/modules/page-archives.css";
+@import "/static/css/themes/opf2019/modules/responsive.css";
+@import "/static/css/themes/opf2019/modules/theme.css";
+@import "/static/css/themes/opf2019/modules/manage.css";

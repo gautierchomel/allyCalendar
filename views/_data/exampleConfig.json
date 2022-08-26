@@ -1,0 +1,63 @@
+{
+    "siteTitle": "Fest Name!",
+    "siteBaseline": "Fest of the best",
+    "strapi": [
+        {
+            "server": "https://strapi.server.location",
+            "username": "usernameWithReadAccessToStrapi",
+            "password": "passWordWithReadAccessToStrapi",
+            "port": 3128
+        }
+    ],
+    "calendarDates": {
+        "start": "2020-05-17",
+        "end": "2020-05-31"
+    },
+    "adminName": "Admin Admin Jr",
+    "adminEmail": "admin@admin.fr",
+    "showForm": "yes",
+    "showAttendees": "yes",
+    "showCalendar": "yes",
+    "showPeople": "yes",
+    "showArchives": "yes",
+    "showBlog": "yes",
+    "showAbout": "yes",
+    "categories": [
+        {
+            "id": "demo",
+            "name": "EMS"
+        },
+        {
+            "id": "performance",
+            "name": "Trip hop"
+        },
+        {
+            "id": "firesideChats",
+            "name": "Boom Bap"
+        },
+        {
+            "id": "micropublications",
+            "name": "Funk"
+        },
+        {
+            "id": "discussion",
+            "name": "Soul"
+        },
+        {
+            "id": "longEvent",
+            "name": "Jazz"
+        }
+    ],
+    "topBar": {
+        "title": "Nubia fest!",
+        "subtitle": "September 13-19",
+        "logo": "<svg width='100%' height='100%' viewBox='0 0 35 30' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;' fill='grey'><path id='categoryOne' d='M17.288,29.951l17.306,-29.951l-34.594,0l17.288,29.951Z' fill-rule='nonzero'/></svg>"
+    },
+    "assets": {
+        "logo": "",
+        "background": "<svg width='100%' height='100%' viewBox='0 0 137 42' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'><g id='catTwo'><path d='M17.288,41.954l-17.288,0l-0,-29.951l17.288,29.951Z' fill='#682902' stroke='#682902'/><path d='M136.328,12.084l-0,29.87l-17.297,0l17.278,-29.902l0.019,0.032Z' fill='#682902' stroke='#682902'/></g><path d='M62.733,41.954l-34.594,0l17.307,-29.951l17.287,29.951Z' fill='#92d4f4' stroke='#92d4f4'/><path d='M22.723,29.951l17.287,-29.951l-34.593,-0l17.306,29.951Z' fill='#f1870b' stroke='#f1870b'/><path d='M108.179,41.954l-34.594,0l17.307,-29.951l17.287,29.951Z' fill='#003f42' stroke='#003f42'/><path d='M68.169,29.951l17.287,-29.951l-34.594,-0l17.307,29.951Z' fill='#f1ea00' stroke='#f1ea00'/><path d='M113.614,29.951l17.288,-29.951l-34.594,-0l17.306,29.951Z' fill='#da0060' stroke='#da0060'/></svg>",
+        "imgPlaceHolder": "",
+        "categoryIcon": "<svg width='100%' height='100%' viewBox='0 0 35 30' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;' fill='grey'><path id='categoryOne' d='M17.288,29.951l17.306,-29.951l-34.594,0l17.288,29.951Z' fill-rule='nonzero'/></svg>",
+        "calEventBackground": ""
+    }
+}

@@ -1,0 +1,50 @@
+{% extends "base.njk" %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+    {% include "_partials/header.njk" %}
+
+
+
+    <main>
+        <section class="content">
+            {{ content | safe}}
+            <form enctype="multipart/form-data" id="form" METHOD="post">
+                <label>
+                    <span>Your Name</span>
+                    <input placeholder="Elizabeth Caslon" type="text" name="name" required/>
+                    <span></span>
+                </label>
+
+                <label>
+                    <span>Your email</span>
+                    <input placeholder="lizbeth@caslon.foundry" type="email" name="email" required/>
+                    <span></span>
+                </label>
+                <label for="eventid">choose your event in the list</label>
+                <select name="eventid" id="eventSelect">
+                        {% include "_partials/eventSelector.njk" %}
+                    </select>
+              
+             
+                <label>
+                    <span>Describe your need here</span>
+                    <textarea name="needs"></textarea>
+                </label>
+     
+                <label style="opacity: var(--hidden)">
+                    <span>don’t fill</span>
+                    <input type="hidden" autocomplete="off" name="enrico" aria-label="Please do not fill this in" class="nah"/>
+                </label>
+              
+                <input type="submit" id="submit" value="submit"/>
+            </form>
+        </section>
+    </main>
+    <iframe name="hiddenFrame" class="hideframe"></iframe>
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="/js/update.js"></script>
+{% endblock %}

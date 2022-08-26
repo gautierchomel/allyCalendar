@@ -1,0 +1,67 @@
+<nav>
+  <ul>
+    {% if config.topBar.menu != false %}
+
+
+      {% if config.topBar.showForm == true %}
+        <li>
+          <a class="proposal" href="/form.html">Propose an event</a>
+        </li>
+      {% endif %}
+
+      {% if config.topBar.showAbout == true %}
+
+        <li {{ 'class="active"' if '/about' in page.url }}>
+          <a href="/about.html">About</a>
+        </li>
+      {% endif %}
+
+      {% if config.topBar.showBlog == true %}
+        <li {{ 'class="active"' if '/blog' in page.url }}>
+          <a href="/blog/">News</a>
+        </li>
+
+      {% endif %}
+
+      {% if config.topBar.showAttendees == true %}
+
+        <li {{ 'class="active"' if '/attendees' in page.url }}>
+          <a href="/attendees.html">People</a>
+        </li>
+      {% endif %}
+
+      {% if config.topBar.showCalendar == true %}
+
+        <li {{ 'class="active"' if '/calendar' in page.url }}>
+          <a href="/calendar.html">Calendar</a>
+        </li>
+      {% endif %}
+
+      {% if config.topBar.showArchives == true %}
+
+        <li {{ 'class="active"' if '/archives' in page.url }}>
+          <a href="/archives.html">Archives</a>
+        </li>
+      {% endif %}
+
+      {% if config.topBar.showGuestForm == true %}
+        <li>
+          <a class="proposal" href="/participant.html">Sign the guestbook!</a>
+        </li>
+      {% endif %}
+
+
+      {% if config.topBar.showTimezoneSelect == true %}
+
+        <div class="button-timezones">
+          <label for="timezoneSelect">Choose your timezone</label>
+          <select name="timezoneSelect" id="timezoneSelect" disabled>
+            {% include "_partials/timezoneSelectorOptions.njk" %}
+          </select>
+        </div>
+
+      {% endif %}
+
+    {% endif %}
+  </ul>
+</nav>

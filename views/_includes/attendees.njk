@@ -1,0 +1,67 @@
+{% extends "base.njk" %}
+
+{% block bodyattribute %}{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+  {% include "_partials/header.njk" %}
+
+  <main>
+    <section class="content">
+      {{content | safe}}
+    </section>
+    <section class="button hide">
+      <label class="lookingfor">
+        <span>Are you looking for someone ?</span>
+        <input type="text" id="search" placeholder="search for names.."></label>
+    </section>
+    <section class="faces">
+      <ul id="participants">
+
+
+        {% for participant in attendees %}
+          {% if participant.accept == true %}
+            
+
+
+          <li class="participant active" style="--color-item: var(--color-{{["1","2","3","4","5","6","7"] | random}})">
+
+            
+
+            <figure >
+              {% if participant.picture == null or participant.picture.ext == ".bin" %}
+                <p class="letter">{{ participant.name | truncate(1)}}</p>
+              {% else  %}
+                <img src="/data/attendees/images/{{participant.picture.hash}}{{participant.picture.ext}}">
+              {% endif %}
+
+            </figure>
+
+            <h2 class="name">{{participant.name}}</h2>
+            {% if participant.bio != null %}
+              <section class="bio">
+                {{participant.bio | markdownify | safe}}
+              </section>
+              {% if participant.socials %}
+                <ul class="socials">
+                  {{participant.socials | separateServices | safe }}
+                </ul>
+              {% endif %}
+            {% endif %}
+
+            <ul class="social"></ul>
+
+          </li>
+          {% endif %}
+
+        {% endfor %}
+
+      </ul>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module" src="/js/attendees.js"></script>
+{% endblock %}

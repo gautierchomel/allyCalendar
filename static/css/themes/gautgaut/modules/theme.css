@@ -1,0 +1,65 @@
+
+
+/* links as button */
+.home .text nav ul {
+  li {
+    margin-top: 1em;
+  }
+}
+
+nav a,
+.home .text a {
+  transition: transform 10ms;
+}
+
+nav a:hover,
+.home .text a:hover {
+  transform: rotate(-3deg);
+}
+
+nav a:active,
+.home .text a:active {
+  /* background: var(--color-primary); */
+  box-shadow: 0 0 0px 2px var(--color-primary);
+}
+
+a.proposal:focus {
+  box-shadow: 0 0 0px 5px var(--color-primary);
+}
+
+
+
+
+/* show hide in calendar */
+
+.emptyday {
+  /* display: none; */
+}
+
+
+.home .text nav ul a.proposal {
+  /* display: none; */
+  /* order: 1; */
+}
+
+
+
+.blog main {
+  padding-top: 3em;
+}
+
+.about .content,
+.blog main > section,
+.participant .content,
+.form .content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.participants .content {
+  background: transparent;
+}
+
+.logo {
+  margin-left: var(--showBackgroundSize);
+}

@@ -1,0 +1,1111 @@
+/* hide reusable svg pattern  */
+.calendar {
+  /* leave hidden as 0. Used to show hide event. */
+  --hidden: 0;
+}
+
+.calendar main {
+  grid-row-gap: 0;
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-gap: 0;
+  min-height: unset;
+  min-height: 100vh;
+}
+
+#calendar {
+  max-width: unset;
+  display: grid;
+  grid-gap: 10px;
+  grid-row-gap: 2em;
+  margin-top: 0;
+  grid-template-columns: repeat(12, 1fr);
+  margin: 0;
+
+  ul {
+    list-style-type: none;
+  }
+
+  .event {
+    margin-bottom: 0.8em;
+    position: relative;
+
+    figure {
+      margin: 0;
+    }
+
+    .category {
+      text-align: center;
+    }
+
+    .category-icon {
+      svg {
+        fill: var(--color-category);
+        max-height: 5em;
+        width: 100%;
+      }
+    }
+  }
+
+  .day {
+    padding: 0;
+    margin: 0;
+    grid-column: span 2;
+    margin-bottom: 2em;
+    margin-top: 0;
+    border-left: 1px solid grey;
+
+    h2 {
+      border-left: 2px solid var(--grey);
+      padding-left: 0.5ch;
+      font-weight: 300;
+      z-index: 9;
+      min-height: 3em;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 0.9em;
+      color: #666;
+      margin: 0;
+      margin-bottom: 1em;
+      position: relative;
+      position: sticky;
+      top: 200px;
+      background: white;
+      z-index: 2000;
+
+      .number {
+      }
+
+      .day-letter {
+      }
+    }
+
+    &.Saturday,
+    &.Sunday {
+      /* background: var(--color-grey, lightgrey); */
+    }
+  }
+}
+/* buttons */
+
+.calendar .buttons label {
+  width: unset;
+  /* margin-right: 1ch; */
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.calendar #timezoneSelect {
+  padding-top: 0;
+  font-size: 1em;
+  width: 100%;
+  padding: 0px;
+  padding-bottom: 8px;
+  border-radius: 0;
+  margin: 1em 0;
+  font-size: 1em;
+  float: right;
+  border: 0;
+  border-bottom: 1px solid var(--spades);
+}
+
+/* show hide events */
+
+.hide {
+  display: none;
+}
+
+/* interaction calendar*/
+.calendar .event a.acc {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  border: 0;
+
+  &:focus {
+    border: 2px dashed var(--color-category, var(--color-primary));
+  }
+
+  &:hover {
+    border: 2px dashed var(--color-category, var(--color-primary));
+  }
+}
+
+.close {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 1.5em;
+  border-radius: 50%;
+  border: 3px solid var(--color-category, var(--color-primary));
+  color: var(--color-category, var(--color-primary));
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-weight: 600;
+  transition: transform 80ms;
+  z-index: 2000;
+}
+
+.close:hover {
+  transform: scale(1.6) rotate(360deg);
+}
+
+/* event */
+
+/* interface to show/hide label */
+.event .modal {
+  --event-display: none;
+}
+
+.event.show .modal {
+  --event-display: block;
+}
+
+.event:not(.show) {
+  &:hover {
+    background: var(--color-category);
+    color: white;
+  }
+
+  .modal {
+    .event-content {
+      width: 100%;
+      display: grid;
+      grid-template-columns: inherit;
+    }
+
+    .close,
+    .event-meta,
+    .event-text p,
+    .description,
+    figure {
+      display: var(--event-display);
+    }
+
+    .month,
+    .daynum {
+      display: var(--event-display);
+    }
+
+    .time {
+      margin: 0;
+      font-size: 0.7em;
+      letter-spacing: 0.05ch;
+      width: max-content;
+      background: var(--color-category, var(--color-secondary));
+      color: var(--color-white);
+      padding: 0.1em 0.5em;
+    }
+
+    .event-content .event-title {
+      padding: 0.4em 1ch 0.3em 1.3ch;
+      border-left: 3px solid var(--color-category, var(--color-secondary));
+      font-size: 0.8em;
+      margin: 0;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 0;
+    }
+  }
+}
+/* events */
+
+.event .header {
+  display: block;
+}
+
+.event .back {
+  display: none;
+}
+
+.event.show .back {
+  display: block;
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .7);
+}
+
+/* an event */
+.event.show .modal {
+  padding: 2em;
+  position: fixed;
+  top: 2em;
+  left: 2em;
+  right: 2em;
+  max-width: 800px;
+  bottom: 2em;
+  background: white;
+  z-index: 100000;
+  overflow-y: auto;
+  height: unset;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-gap: 30px;
+  grid-column: 1 / -1;
+
+  .event-content {
+    display: grid;
+    grid-column: span 2;
+    grid-template-columns: inherit;
+  }
+
+  .event-text {
+    grid-column: 2;
+    display: block;
+    margin-top: -16.2em;
+    background: var(--color-content-background);
+    padding: 2em;
+    position: relative;
+    z-index: 4;
+    grid-column: 2;
+    margin-right: 3em;
+    min-height: 60vh;
+
+    .event-title {
+      background: var(--color-content-background);
+      margin-top: 0;
+      font-size: 2em;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .description {
+      max-width: 40ch;
+      hyphens: auto;
+      margin-top: 2em;
+    }
+  }
+
+  /* show date and time on each event */
+  .time {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    margin-top: 47px;
+    margin-left: 20px;
+    padding: 4px 10px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    max-width: 180px;
+  }
+
+  .month {
+    text-align: center;
+  }
+
+  .time span {
+    width: 100%;
+    display: block;
+    background: var(--color-white);
+  }
+
+  .daynum {
+    text-align: center;
+    line-height: 0.8;
+    margin: 0;
+    font-size: xxx-large;
+    font-weight: 600;
+    color: var(--color-category);
+  }
+
+  .tz {
+    text-align: center;
+  }
+
+  .hour {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-top: 1px;
+    padding-top: 3px;
+    line-height: 1;
+    border-top: 2px solid var(--color-category);
+  }
+
+  .time .month {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    line-height: 1.4;
+  }
+  /* handle figure */
+  .tag {
+    background: rgba(140, 140, 140, 0.2);
+    margin-right: 1em;
+    margin-top: 1em;
+    padding: 0.2em 0.4em;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  figure {
+    background: var(--color-category, var(--color-secondary));
+    min-height: 300px;
+    padding: 1em;
+    width: 100%;
+    grid-column: span 2;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    overflow: hidden;
+    height: auto;
+    max-height: 300px;
+  }
+
+  figure img {
+    opacity: 0.8;
+    filter: grayscale() brightness(0.8);
+    mix-blend-mode: multiply;
+    height: 20em;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  svg.emptyImg {
+    width: 100%;
+    height: 300px;
+    /* grid-column-start: 1; */
+  }
+
+  svg.emptyImg .pattern {
+    transform: scale(10) translateX(-100%);
+    opacity: 0.5;
+  }
+}
+
+/* no js show event */
+
+.event-check {
+  display: none;
+
+  &:checked {
+    & + nav {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+/* buttons */
+
+.calendar .buttons {
+  display: grid;
+  grid-column-gap: 30px;
+  text-align: left;
+  grid-template-columns: 200px 1fr;
+  grid-column: sidebar / end;
+  margin-top: 5em;
+  padding-top: 10px;
+  z-index: 4000;
+  padding-left: 0;
+  position: sticky;
+  top: 100px;
+  background: white;
+}
+
+/* tents */
+
+#categories {
+  &:empty {
+    display: none;
+  }
+  justify-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  grid-column: span 2;
+  text-align: center;
+  position: sticky;
+  top: 10px;
+  z-index: 1000;
+  padding-bottom: 10px;
+  position: sticky;
+  top: 0;
+  align-items: end;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+
+  li {
+    padding-top: 1em;
+    text-align: center;
+    font-size: 0.8em;
+    cursor: pointer;
+    margin: 0;
+    padding-top: 0em;
+    margin: 0;
+    max-width: 200px;
+    color: var(--color-category);
+
+    .category {
+      display: inline;
+      width: 100%;
+      text-align: left;
+      color: var(--color-category);
+      border-bottom: 3px solid transparent;
+      margin: 0 auto;
+      margin-top: 0.75em;
+      color: var(--color-body);
+    }
+
+    &:hover .category {
+      border-bottom: 3px solid var(--color-category);
+      /* background: var(--color-category); */
+      /* color: var(--white); */
+    }
+
+    svg {
+      width: 50px;
+      margin: auto;
+      text-align: center;
+      padding: 0;
+      fill: var(--color-category, lightgrey);
+    }
+  }
+}
+
+/* TODO : add support for passed event */
+.passed {
+  opacity: 0.3;
+}
+
+.passed:hover {
+  opacity: 1;
+}
+
+.calendar {
+  .dl-ics {
+    a {
+      width: 100%;
+      text-align: left;
+      margin-top: 2em;
+      line-height: 1;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--color-category, var(--color-primary));
+      padding: 0;
+      color: var(--color-category, var(--color-primary));
+    }
+  }
+
+  .dl-ics:hover {
+    --color-category: var(--black);
+    cursor: pointer;
+  }
+}
+
+/* search bar */
+[for="search"] {
+  span {
+    color: var(--color-body);
+  }
+}
+
+#search {
+  padding-top: 0;
+  font-size: 1em;
+  width: 100%;
+  padding: 0px;
+  padding-bottom: 8px;
+  border-radius: 0;
+  margin: 1em 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-primary);
+
+  &::placeholder {
+  }
+}
+
+.event .registration-icon {
+  fill: var(--colorItem);
+  stroke-width: 2px;
+  stroke: var(--white);
+  position: absolute;
+  right: 0;
+  top: -20px;
+  max-width: 40px;
+  transform: rotate(-90deg);
+}
+
+.registration:hover h2::before {
+  /* content: "Register quick!";  */
+  position: absolute;
+  display: block;
+  position: absolute;
+  /* top: -1em; */
+  text-transform: uppercase;
+  /* right: 0; */
+  /* background: var(--colorItem); */
+  top: -3em;
+  padding: 0.3em 0.3em;
+  font-weight: 600;
+  background: var(--colorItem);
+  color: var(--color-white);
+  /* border: 2px solid var(--color-body); */
+}
+
+.registration-needed {
+  font-weight: 500;
+  font-style: italic;
+  /* color: ; */
+  position: relative;
+  padding-right: 30px;
+  display: block;
+  width: 100%;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  /* text-align: center; */
+  font-size: 1.3em;
+}
+
+.registration-icon {
+  fill: var(--color-category);
+  stroke: var(--white);
+  stroke-width: 2px;
+  /* stroke: var(--color-category); */
+  width: 40px;
+  transform: rotate(-90deg);
+  display: inline-block;
+  margin-top: -20px;
+}
+
+.passed.accepted {
+  opacity: 0.3;
+}
+
+.passed.accepted:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 700px) {
+  .event-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3em;
+  }
+}
+
+:target {
+  scroll-margin-top: 25rem;
+}
+
+.hide,
+.accepted.hide {
+  display: none;
+}
+
+/* responsive */
+
+@media screen and (max-width: 1200px) {
+  #calendar {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  #categories {
+    grid-template-columns: repeat(auto-fill, minmax(calc(100% / 6), 1fr));
+  }
+
+  #categories svg {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .button-timezones {
+    /* grid-column: span 2; */
+  }
+
+  #categories {
+    grid-column: span 2;
+  }
+
+  #calendar h2 {
+    top: 200px;
+    position: sticky;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #calendar {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .event.show .event-content {
+    display: block;
+  }
+
+  .event.show .modal {
+    display: block;
+  }
+
+  .event.show .modal .event-text {
+    margin-top: 0;
+  }
+
+  .event.show .modal {
+    inset: 2em;
+    max-width: unset;
+    /* width: ; */
+    /* box-shadow: none; */
+    /* height: calc(100% - 8em); */
+    z-index: 3000000;
+  }
+
+  #calendar h3 .number {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #calendar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .calendar .buttons {
+    position: unset;
+  }
+
+  #calendar .day h2 {
+    top: 0;
+  }
+
+  section h1 {
+    font-size: 3em;
+    margin-top: 3em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .calendar {
+    --sticky: unset;
+  }
+
+  .calendar #calendar {
+    grid-gap: 40px;
+  }
+
+  #calendar h2 {
+    position: sticky;
+    top: 0;
+  }
+
+  #calendar section {
+    margin-top: 0;
+  }
+
+  #calendar h2 .number {
+    /* position: relative; */
+    display: inline;
+    margin-left: 0ch;
+  }
+
+  .event.show .modal .event-content,
+  .event.show .modal {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #calendar {
+    font-size: 1.2em;
+  }
+
+  #categories {
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  #calendar {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #calendar {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .event.show .modal {
+    grid-template-columns: 100px 1fr;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .event.show .modal {
+    display: block;
+    /* flex-direction: column; */
+  }
+
+  .event.show .modal .event-text {
+    margin-top: 1em;
+  }
+
+  .event.show .category {
+    font-size: 1em;
+    display: inline-block;
+    margin: 0;
+    width: 100%;
+  }
+
+  .event.show .event-text {
+    margin-top: 3em;
+    max-width: unset;
+  }
+
+  .event.show .category-name {
+    display: block;
+    text-align: center;
+  }
+
+  #calendar {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #calendar {
+    display: block;
+  }
+
+  .event.show .modal {
+    padding-bottom: 3em;
+  }
+
+  .event.show .modal .buttons {
+    display: block;
+  }
+
+  #categories {
+    grid-gap: 30px;
+    padding: 0;
+    margin: 0;
+  }
+
+  #categories li {
+    width: 45%;
+  }
+
+  #categories p {
+    text-align: center;
+  }
+
+  #list {
+    left: 2em;
+    right: 2em;
+    width: unset;
+    height: unset;
+  }
+
+  .event.show figure {
+    min-height: unset;
+  }
+
+  .event.show .time {
+    top: -10px;
+  }
+
+  .event.show .event-text {
+    margin-top: 0;
+    padding: 0;
+    /* width: 100%; */
+  }
+
+  .close {
+    top: 20px;
+    right: 0px;
+    font-size: 2.3em;
+    height: 50px;
+    width: 50px;
+    position: fixed;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .buttons div {
+    grid-column: span 2;
+    width: 100%;
+    margin-bottom: 3em;
+  }
+
+  #categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 1.2em;
+    margin-bottom: 3em;
+  }
+
+  #categories li {
+    width: auto;
+  }
+}
+
+.event-page {
+  /* an event */
+  .modal {
+    padding: 2em;
+    /* max-width: 800px; */
+    bottom: 2em;
+    background: white;
+    z-index: 100000;
+    overflow-y: auto;
+    height: unset;
+    margin: 0 auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 30px;
+    grid-column: 1 / -1;
+
+    .event-content {
+      display: grid;
+      grid-column: span 2;
+      grid-template-columns: inherit;
+      max-width: 50ch;
+    }
+
+    h3 {
+      max-width: 20ch;
+    }
+
+    .event-text {
+      grid-column: 2;
+      display: block;
+      margin-top: -16.2em;
+      background: var(--color-content-background);
+      padding: 2em;
+      position: relative;
+      z-index: 4;
+      grid-column: 2;
+      margin-right: 3em;
+
+      .event-title {
+        background: var(--color-content-background);
+        margin-top: 0;
+        font-size: 2em;
+        line-height: 1;
+        font-weight: 800;
+        margin-bottom: 0;
+      }
+
+      .description {
+        max-width: 40ch;
+        hyphens: auto;
+      }
+    }
+
+    /* show date and time on each event */
+    .time {
+      position: absolute;
+      z-index: 1000;
+      top: 0;
+      margin-top: 47px;
+      margin-left: 20px;
+      background: var(--color-white);
+      padding: 4px 10px 6px;
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+    }
+
+    .month {
+      text-align: center;
+    }
+
+    .time span {
+      width: 100%;
+      display: block;
+    }
+
+    .daynum {
+      text-align: center;
+      line-height: 0.8;
+      margin: 0;
+      font-size: xxx-large;
+      font-weight: 600;
+      color: var(--color-category);
+    }
+
+    .tz {
+      text-align: center;
+    }
+
+    .hour {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.2em;
+      margin-top: 1px;
+      padding-top: 3px;
+      line-height: 1;
+      border-top: 2px solid var(--color-category);
+    }
+
+    .time .month {
+      text-transform: uppercase;
+      font-size: 1.2em;
+      line-height: 1.4;
+    }
+    /* handle figure */
+    .tag {
+      background: rgba(140, 140, 140, 0.2);
+      margin-right: 1em;
+      margin-top: 1em;
+      padding: 0.2em 0.4em;
+      font-size: 0.7em;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    figure {
+      background: var(--color-category, var(--color-secondary));
+      min-height: 300px;
+      padding: 1em;
+      width: 100%;
+      grid-column: span 2;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      overflow: hidden;
+      height: auto;
+      max-height: 300px;
+    }
+
+    figure img {
+      opacity: 0.8;
+      filter: grayscale() brightness(0.8);
+      mix-blend-mode: multiply;
+      height: 20em;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    svg.emptyImg {
+      width: 100%;
+      height: 300px;
+      /* grid-column-start: 1; */
+    }
+
+    svg.emptyImg .pattern {
+      transform: scale(10) translateX(-100%);
+      opacity: 0.5;
+    }
+  }
+}
+
+.calendar .event .image-back svg {
+  opacity: .3;
+  filter: grayscale();
+  width: 240%;
+}
+
+#calendar  .service {
+  font-variant: all-small-caps;
+  color: var(--color-primary);
+  color: var(--color-item);
+  margin-right: 1.2em;
+}
+
+#calendar .socials {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+.event .link {
+  font-style: italic;
+  margin-top: 1em;
+  
+}
+
+.event  a {
+  border-bottom: 2px solid var(--color-category);
+}
+
+.event  a:hover {
+  --color-category: var(--color-primary);
+}
+
+.event .event-title {
+  margin-bottom: 0;
+}
+
+.event .from {
+  font-style: italic;
+  margin-top: .4em;
+}
+
+.event .from em {
+  font-style: normal;
+}
+
+.event .from p {
+  margin: 0;
+  /* margin-bottom: 0em; */
+  padding: 0;
+}
+
+/* opa logo addedd */
+
+
+.event .time {
+  position: relative;
+}
+
+.event:not(.show) .time svg {
+  position: absolute;
+  right: -28px;
+  bottom: 0;
+  width: 21px;
+  height: auto;
+  fill: var(--color-category);
+}
+
+.event:not(.show):hover  .time svg {
+  stroke: var(--color-category);
+  stroke-width: 4;
+  fill: white;
+}
+
+.time svg {
+  fill: var(--color-category);
+  z-index: 20;
+}
+
+.event.show .modal .time svg {
+  width: 55%;
+  position: unset;
+  margin: 0 auto;
+  background: transparent;
+  position: unset;
+  fill: white;
+  stroke: var(--color-category);
+}
+
+
+.urlinstructions {
+  font-style: italic;
+  font-size: .9em;
+}

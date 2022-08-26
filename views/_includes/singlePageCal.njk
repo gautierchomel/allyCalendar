@@ -1,0 +1,49 @@
+{% extends "base.njk" %}
+
+{% block bodyattribute %}{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+    {% include "_partials/header.njk" %}
+
+  <main>
+      <section class="intro">
+        <header>
+          <h1 class="title">{{config.siteTitle}}</h1>
+          {% if config.siteBaseline != null %}
+            <p class="baseline">{{config.siteBaseline}}</p>
+          {% endif %}
+          {% if config.siteDates != null %}
+            <p class="dates">{{config.siteDates}}</p>
+          {% endif %}
+        </header>
+        <section class="content">
+        {{ content | safe }}
+        </section>
+      </section>
+      <section class="buttons">{% include "_partials/cal-buttons.njk" %}</section>
+      <section id="calendar" style="{% if config.daytotal %}--day-total: {{dayTotal}};{% endif %}">
+      <h1>{{i18n.calendarTitle.fr}}</h1>
+        {% if config.calendarDataSource == "markdown" %}
+          {% include "_partials/cal-elementMD.njk" %}</section>
+      {% elif config.calendarDataSource == "json" %}
+        {% include "_partials/cal-element.njk" %}</section>
+    {% endif %}
+
+    {% if speakerList == true %}
+      <section class="presenters">
+        {% for presenter in collections.presenter %}
+          <h2>{{presenter.title}}</h2>
+          {{presenter.templateContent | markdownify | safe}}
+        {% endfor %}
+      </section>
+
+    {% endif %}
+
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script type="module" src="/js/calendar.js"></script>
+{% endblock %}

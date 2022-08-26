@@ -1,0 +1,33 @@
+backend:
+  name: gitlab
+  repo: 
+  auth_type: implicit # Required for implicit grant
+  app_id:  # Application ID from your GitLab settings
+  api_root: 
+  base_url: 
+  auth_endpoint: 
+  site_domain: 
+local_backend: true # pour se connecter au cms en local
+publish_mode: editorial_workflow
+media_folder: "static/images/uploads" # Media files will be stored in the repo under images/uploads
+collections:
+  - name: "bio" # Used in routes, e.g., /admin/collections/blog
+    label: "Biography" # Used in the UI
+    folder: "views/content/bio" # The path to the folder where the documents are stored
+    create: true
+    fields: # The fields for each document, usually in front matter
+      - {label: "name", name: "title", widget: "string"}    
+      - {label: "body", name: "body", widget: "markdown"}
+      - {label: "contact", name: "contact", widget: "list", allow_add: true}
+  - name: "event" # Used in routes, e.g., /admin/collections/blog
+    label: "events" # Used in the UI
+    create: true
+    folder: "views/content/eventList/" # The path to the folder where the documents are stored
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}    
+      - {label: "Structure", name: "bio", widget: "string"}
+      - {label: "date", name: "date", widget: "string"}
+      - {label: "fullTime", name: "fullTime", widget: "string"}
+      - {label: "timezone", name: "timezone", widget: "string"}
+      - {label: "id", name: "id", widget: "number"}
+      - {label: "tags", name: "tags", widget: "string"}

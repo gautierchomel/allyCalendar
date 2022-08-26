@@ -1,0 +1,17 @@
+.blog {
+  section {
+    scroll-snap-margin-top: 10em;
+    scroll-margin-top: 10em;
+  }
+  :target {
+    scroll-margin-top: 25rem;
+  }
+}
+
+.blog-date {
+  /* display: block;  */
+  /* text-transform: uppercase; */
+  margin-bottom: 1em;
+  margin-right: 1ch;
+}
+

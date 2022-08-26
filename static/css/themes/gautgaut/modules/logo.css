@@ -1,0 +1,39 @@
+:root {
+
+
+}
+
+
+
+
+
+
+
+.background svg {
+  fill: none;
+  stroke: none;
+  width: 100vw;
+  min-width: 1700px;  
+  height: auto;
+  /* inset:0; */
+  position: absolute;
+  z-index: -3;
+  position: fixed;
+}
+
+.background {
+  background-color: white;
+}
+
+
+
+/* basic */
+
+.name {
+  fill: var(--color-body);
+}
+
+.letters {
+  fill: var(--color-body);
+}
+

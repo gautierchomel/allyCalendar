@@ -1,0 +1,77 @@
+:root {
+  --color-gradient-start: ;
+  --color-gradient-end: #e6cae6;
+  --color-gradient-start: #53a3c6;
+  --color-gradient-end: #7cddcb;
+  --color-content-background: white;
+  --color-background: white;
+  --color-topBar-background: rgba(255, 255, 255, .8);
+  --color-primary: purple;
+  --color-secondary: #3c8a8c;
+  --color-body: #202020;
+  --color-reverse: white;
+  --color-white: white;
+
+  /* to show the background on other page than home */
+
+  --showBackgroundSize: 3em;
+
+  /* fonts */
+  --font-sans: "overpass", sans-serif;
+  --font-serif: var(--font-sans);
+  --font-interface: var(--font-sans);
+  --font-title: var(--font-sans);
+  --font-text: var(--font-sans);
+
+/* 
+  --color-demo: darkred;
+  --color-performance: #40a1ff;
+  --color-workshop: orange;
+  --color-workflows: purple;
+  --color-micropublications: #ff4a50;
+  --color-discussion: #ffe24a;
+  --color-long-event: #40a1ff;
+  --color-builders: #5fc26e;
+  --color-fireside-chats: #e478ed; */
+
+  /* colors for categories. You need to rename them to match what you get in your json file */
+  --color-demo: #ff4a50;
+  --color-performance: #40a1ff;
+  --color-workshop: orange;
+  --color-workflows: purple;
+  --color-discussion: #A39520;
+  --color-long-event: #40a1ff;
+  --color-builders: #5fc26e;
+  --color-fireside-chats: #7B7494;
+
+  
+
+  /* --color-demo:#40A1FF;
+  --color-performance:#FF4A50;
+  --color-workshop:#E478ED;
+  --color-workflows:#636855;
+  --color-micropublications:#2A8A39;
+  --color-discussion:#7B7494;
+  --color-long-event:#A39520;
+  --color-builders:#FF7A00;
+  --color-fireside-chats: purple; */
+
+
+  --color-1: #ff4a50;
+  --color-2: #40a1ff;
+  --color-3: orange;
+  --color-4: purple;
+  --color-4: #A39520;
+  --color-5: #40a1ff;
+  --color-6: #5fc26e;
+  --color-7: #7B7494;
+}
+
+
+
+
+
+
+
+
+

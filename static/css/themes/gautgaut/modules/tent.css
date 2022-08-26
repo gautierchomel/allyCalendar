@@ -1,0 +1,49 @@
+.tent svg {
+  .back {
+    fill: var(--color-tent); 
+  }
+  .opening {
+    fill: var(--color-tent);
+  }
+  &.show-flag {
+    .flag {
+      display: block;
+    }
+  }
+  &.show-right-open {
+    .right-open {
+      .opening {
+        display: block;
+      }
+    }
+  }
+  &.show-left-close {
+    .left-open-small {
+      display: block;
+      .opening {
+        display: none;
+      }
+  }
+  }
+  &.show-left-small {
+    .left-open-small {
+        display: block;
+    }
+  }
+  &.show-left-big {
+    .left-open-big {
+        display: block;
+    }
+  }
+  &.show-roof-full {
+    .roof-full {
+   
+        display: block;
+    }
+  }
+  &.show-roof-cut {
+    .roof-cut {
+        display: block;
+    }
+  }
+}

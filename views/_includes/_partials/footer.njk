@@ -1,0 +1,8 @@
+{% if footer == true %}
+    <footer class="about">
+        {% for item in collections.about %}
+            {{item.templateContent | safe}}
+        {% endfor %}
+    </footer>
+
+{% endif %}

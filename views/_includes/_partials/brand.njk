@@ -1,0 +1,11 @@
+<figure class="logo">
+  {% if config.topBar.logo.length > 1  %}
+    {{ config.topBar.logo | safe}}
+  {% endif %}
+  {% if config.topBar.title.length > 1  %}
+  <h1 class="site-title">{{config.topBar.title}}</h1>
+  {% endif %}
+  {% if config.topBar.subtitle.length > 1  %}
+    <p class="site-baseline">{{config.topBar.subtitle}}</p>
+  {% endif %}
+</figure>

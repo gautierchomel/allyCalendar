@@ -1,0 +1,84 @@
+{% extends "base.njk" %}
+{% block menu %}{% endblock %}
+{% block content %}
+  {% include "_partials/header.njk" %}
+
+  <main>
+    {# <header>
+      {% include "_partials/menu.njk" %}
+    </header> #}
+
+    <section class="content">
+      <section>
+        <h1>{{ title }}</h1>
+        {{ content | safe }}
+      </section>
+
+      <div class="button-search">
+        <label class="lookingfor" for="search">Search for an event</label>
+        <input type="text" id="search" name="search"  placeholder="search for language, keyword, participants, etc">
+      </div>
+
+      <ul id="archives">
+
+        {% for event in events %}
+          {% if (event.accept == true) and (event.archiveLink != "") and (event.archiveLink != null)%}
+            <li id="archive-event-{{event.id}}" style="--color-category: var(--color-{{event.category | replace(" ", "-") | replace(" ", "-") | toLowerCase }})" class="archive-event content">
+              <p class="meta"><span class="category">{{event.category}}</span></p>
+
+              <h3>{{event.title}}</h3>
+              {% if event.participant %}
+
+                <div class="participants"> 
+                 {{event.participant | markdownify | safe}}
+                </div>
+              {% endif %}
+
+              {# {{event.description | markdownify | safe }} #}
+              <p class="link">
+                <a href="{{event.archiveLink}}">Watch the replay</a>
+              </p>
+            </li>
+
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    if (document.querySelector("input#search")) {
+      document
+        .querySelector("input#search")
+        .addEventListener("keyup", function () {
+          searchAnEvent(this);
+        });
+    }
+
+    function searchAnEvent(input) {
+      // const input = document.querySelector('#search');
+      let filter = input
+        .value
+        .toUpperCase();
+      let eventList = document
+        .querySelector("#archives")
+        .querySelectorAll(".archive-event");
+
+      // Loop through all list items, and hide those who don't match the search query
+      eventList.forEach((event) => {
+        let txtValue = event
+          .textContent
+          .toUpperCase() || event
+          .innerText
+          .toUpperCase();
+        if (txtValue.indexOf(filter) > -1) {
+          event.style.display = "";
+        } else {
+          event.style.display = "none";
+        }
+      })
+    }
+  </script>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% for event in events | sortByID | reverse %}
+    {% if event.accept == true %}
+        <option value="{{event.id}}">event #{{event.id}}: {{event.title}}</option>    
+    {% endif %}
+{% endfor %}
+

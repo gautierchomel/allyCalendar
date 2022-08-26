@@ -1,0 +1,44 @@
+{# rebuild any calendar date based on fullTime in json #}
+
+
+{% set lastDate = "first" %}
+
+{% for event in collections.eventsMD %}
+
+  {{event.data.fullTime | log}} 
+    {% set day = event.data.fullTime %}
+    {% if lastDate == "first" %}
+   
+      <ul class="day d-{{event.data.fullTime | formatDate("UTC", "DDDD")}}  {{event.data.fullTime | formatDate("UTC", "dddd")}}" id="day-{{event.data.fullTime | formatDate("UTC", "DD")}}">
+        <h2>
+          <span class="day-letter">{{event.data.fullTime | formatDate("UTC", "dddd")}}</span>
+          <span class="number">{{event.data.fullTime | formatDate("UTC", "D")}}</span>
+          <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span></h2>
+    
+       {% if event.data.accepted == true %}
+        {% include "_partials/cal-eventMD.njk" %}
+        {% endif %}
+
+      {% elif (lastDate | formatDate("UTC", "DDDD")) == (day | formatDate("UTC", "DDDD")) %}
+    
+        {% if event.data.accepted == true %}
+        {% include "_partials/cal-eventMD.njk" %}
+        {% endif %}
+
+      {% elif lastDate != day %}
+
+      </ul>
+
+      <ul class="day d-{{event.data.fullTime | formatDate("utc", "dddd")}} {{event.data.fullTime | formatDate("utc", "dddd")}}" id="day-{{event.data.fullTime | formatDate("utc", "DD")}}">
+        <h2>
+          <span class="day-letter">{{event.data.fullTime | formatDate("UTC", "dddd")}}</span>
+          <span class="number">{{event.data.fullTime | formatDate("UTC", "D")}}</span>
+          <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span></h2>
+          {% if event.data.accepted == true %}
+        {% include "_partials/cal-eventMD.njk" %}
+        {% endif %}
+      {% endif %}
+
+      {% set lastDate = day %}
+  {% endfor %}
+</ul>

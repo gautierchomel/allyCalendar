@@ -1,0 +1,12 @@
+node_modules
+dist
+public
+.vscode
+.json
+.DS_Store
+static/data/
+api.json
+views/_data/events.json
+views/_data/attendees.json
+views/events/*.md
+temp

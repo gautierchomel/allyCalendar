@@ -1,0 +1,195 @@
+/* top bar / menu */
+.topMenu {
+  background: var(--color-topBar-background, white);
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  display: grid;
+  grid-template-columns: [sidebar] 200px [content] 1fr [end];
+  align-items: center;
+  padding: 20px 20px 20px 0;
+  font-family: var(--font-interface);
+
+  .logo svg {
+    left: 0;
+    top: 0;
+    padding: 0;
+  }
+
+
+  .logo span {
+    z-index: 1000;
+    display: none;
+    position: relative;
+  }
+
+}
+
+nav {
+  font-family: var(--font-interface);
+  z-index: 3000;
+  font-weight: 800;
+  font-size: 0.9em;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-right: 10px;
+
+    li {
+      margin-left: 2em;
+    }
+
+    a {
+      background: var(--color-reverse);
+      border-radius: 16px;
+      padding: .4em 1em .2em;
+      border: 2px solid var(--color-body);
+      display: block;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      font-weight: 400;
+
+      &:hover {
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+      }
+    }
+  }
+}
+
+.proposal {
+  background: var(--color-reverse);
+  width: max-content;
+  margin: 0 auto;
+  border-radius: 16px;
+  padding: .4em 1em .2em;
+  border: 2px solid var(--color-body);
+  display: block;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* responsive top bar */
+
+@media screen and (min-width: 901px) {
+  nav ul::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: -210px;
+    right: 0;
+    /* background: var(--white); */
+    top: -48px;
+    bottom: -20px;
+    z-index: -1;
+  }
+
+  main > .topMenu {
+    /* position: relative; */
+    z-index: 10000;
+  }
+
+  .home nav ul::before {
+    content: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  /* .background > svg {
+    width: 1500px;
+    top: -200px;
+  } */
+
+  main {
+    float: none;
+    margin: 1em;
+    border: 1em;
+    display: block;
+    width: auto;
+  }
+
+  .topMenu,
+  .topMenu nav {
+    align-content: center;
+    margin-bottom: 2em;
+    display: block;
+    text-align: center;
+    margin: 0;
+    position: static;
+
+    ul {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      
+    }
+
+    ul li {
+      display: block;
+      margin: 1.2em;
+      margin-left: 0;
+
+      a {
+        display: block;
+        text-align: center;
+        max-width: 100%;
+        font-size: 1em;
+      }
+
+      & .proposal {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  nav ul li {
+    max-width: max-content;
+  }
+}
+
+.topMenu a[href="/"] {
+  z-index: 30001;
+}
+
+.home .logo {
+  display: none;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .topMenu {
+    flex-direction: column; 
+  }
+}
+
+  x
+  .topMenu .logo:hover svg {
+  background: var(--color-body); 
+
+  }
+
+.topMenu .logo:hover .letters {
+  fill: black;
+}
+
+.topMenu .logo:hover .name {
+  fill: white;
+}
+
+

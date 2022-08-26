@@ -1,0 +1,45 @@
+{% macro tent(name, color) %}
+<span class="tent">
+    <svg viewBox="0 0 115 107" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"  class="{{ ['show-flag', ' '] | random }} {{['show-right-open', ' '] | random}} {{['show-left-small', 'show-left-big', 'show-left-close'] | random}}  {{['show-roof-cut', 'show-roof-full'] | random}}">
+        <g class="flag" display="none">
+            <path fill="grey" class="back" d="M62.52,13.692l0,-12.192l21.04,5.158l-21.04,7.034Z" ></path>
+            <path fill="url(#{{color}})" class="pattern" d="M62.52,13.692l0,-12.192l21.04,5.158l-21.04,7.034Z"></path>
+        </g>
+        <g class="right-open">
+            <path fill="grey" class="back" d="M58.394,60.327l39.634,-0.208c0,0 3.433,32.276 15.939,43.531l-37.961,0l-17.612,-43.323Z" ></path>
+            <path fill="url(#{{color}})" class="pattern" d="M58.394,60.327l39.634,-0.208c0,0 3.433,32.276 15.939,43.531l-37.961,0l-17.612,-43.323Z"></path>
+            <path class="opening"  display="none" d="M76.965,103.071l14.958,-17.945l-32.832,-24.94l17.874,42.885Z" ></path>
+        </g>
+        <g class="left-open-big"  display="none">
+            <path fill="grey" class="back" d="M58.924,61.012l-41.019,0.05c0,0 -5.651,33.799 -16.405,43.39l28.388,-0.55l29.036,-42.89" ></path>
+            <path fill="url(#{{color}})" class="pattern" d="M58.924,61.012l-41.019,0.05c0,0 -5.651,33.799 -16.405,43.39l28.388,-0.55l29.036,-42.89"></path>
+            <path class="opening" d="M58.924,61.012l-39.471,21.112l10.435,21.778l29.036,-42.89Z"></path>
+        </g>
+        <g class="left-open-small"  display="none">
+            <path fill="grey" class="back" d="M58.394,60.327l-41.006,1.037c0,0 -4.837,33.924 -15.357,43.772l25.785,-1.486l16.028,0l14.55,-43.323" ></path>
+            <path fill="url(#{{color}})" class="pattern" d="M58.394,60.327l-41.006,1.037c0,0 -4.837,33.924 -15.357,43.772l25.785,-1.486l16.028,0l14.55,-43.323"></path>
+            <path class="opening" d="M58.394,60.327l-31.518,32.842l16.968,10.481l14.55,-43.323Z" ></path>
+        </g>
+        <g class="roof-full" transform="scale(1.1) translate(-5 -2)" display="none">
+            <path fill="grey" class="back" d="M73.611,32.809c5.536,5.964 24.848,19.888 24.848,19.888l-35.701,0.5l-6.203,0.019l-39.287,1.365c0,0 25.502,-17.158 39.976,-40.814c0,0 10.83,13.077 16.367,19.042Z" ></path>
+            <path fill="url(#{{color}})" class="pattern" d="M73.611,32.809c5.536,5.964 24.848,19.888 24.848,19.888l-35.701,0.5l-6.203,0.019l-39.287,1.365c0,0 25.502,-17.158 39.976,-40.814c0,0 10.83,13.077 16.367,19.042Z"></path>
+        </g>
+        <g class="roof-cut" display="none">
+            <g class="roof-left">
+                <path fill="grey" class="back" d="M19.273,54.581c0,0 24.327,-19.695 38.134,-44.081l-0.657,42.674l-37.477,1.407Z" ></path>
+                <path fill="url(#{{color}})" class="pattern" d="M19.273,54.581c0,0 24.327,-19.695 38.134,-44.081l-0.657,42.674l-37.477,1.407Z"></path>
+            </g>
+            <g class="roof-right">
+                <path fill="grey" class="back" d="M63.325,19.879l-0.657,33.275l34.056,-0.515c0,0 -24.852,-16.347 -33.399,-32.76Z" ></path>
+                <path fill="url(#{{color}})" class="pattern" d="M63.325,19.879l-0.657,33.275l34.056,-0.515c0,0 -24.852,-16.347 -33.399,-32.76Z"></path>
+            </g>
+        </g>
+</svg>
+{# make #}
+<span class="tent-name">{% if name == `auto` %}{{name}}{% else %}{% if name == 'demo' %}Demo & How To{% elif name == 'performance' %}Performance{% elif name == 'firesideChats' %}Fireside Chats{% elif name == 'discussion' %}Discussion{% elif name == 'micropublications' %}Micropublications{% elif name == 'longEvent' %}work of Bob Stein{% else %}This event hasn’t been curated yet{% endif %}{% endif %}</span>
+</span>
+{% endmacro %}
+
+
+{# backup for the tent title #}
+{# <span class="tent-name">{% if name == `auto` %}{{name}}{% else %}{% if name == 'demo' %}Demo & How To{% elif name == 'performance' %}Performance{% elif name == 'firesideChats' %}Fireside Chats{% elif name == 'discussion' %}Discussion{% elif name == 'micropublications' %}Micropublications{% elif name == 'longEvent' %}work of Bob Stein{% else %}This event hasn’t been curated yet{% endif %}{% endif %}</span> #}

@@ -1,0 +1,93 @@
+{% extends "base.njk" %}
+
+{% block bodyattribute %}{% endblock %}
+
+{% block styles %}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.css" rel="stylesheet"></link>
+{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+  <header class="topMenu">
+      {% include "_partials/menu.njk" %}
+    </header>
+  {# {% include "_partials/header.njk" %} #}
+
+  <main>
+    <section class="content">
+      {{ content | safe }}
+
+      <form enctype="multipart/form-data" id="form" METHOD="post">
+        <label>
+          <span>Your Name</span>
+          <input placeholder="elizabeth caslon" type="text" name="name" required/>
+          <span></span>
+        </label>
+        <label>
+          <span>Your email <small>This email won’t be shared in the website, it’s here in case we’d need to contact you.</small>
+          </span>
+          <input id="mail" placeholder="lizbeth@caslon.foundry" type="email" name="mail" required/>
+          <span></span>
+        </label>
+        <label>
+          <span class="question">Check that checkbox if you want to get some news from us once in a while.</span>
+        </label>
+        <div>
+          <input  type="checkbox" id="shareUserNametrue" name="shareUserName" value="true">
+          <label class="radio" for="shareUserNametrue">yes, i agree to receive a mail once in a while.</label>
+          <span><br></span>
+        </div>
+        <label>
+          <span>Website, link, etc.</span>
+          <input placeholder="www.rolling-on-a-river.com" type="text" name="link"/>
+          <span></span>
+        </label>
+        <label>
+          <span>Bio
+            <small class="counter">/515</small>
+          </span>
+          <textarea placeholder="what i did before?i was eating pizzas with turtles in new york" name="bio" maxlength="515" required></textarea>
+          <span class="counter"></span>
+        </label>
+        <label>
+          <span>Social accounts
+            <br/>
+            <small>Add any service you want on a new line following this: service: username. You can add more than one and separate them with a coma.</small>
+          </span>
+          <textarea name="socials" rows="5" required>Twitter: @eventList, Instagram: @eventList, etc: eventList,</textarea>
+        </label>
+        <label>
+          <span>Image
+            <br/>
+            <small>supported formats: jpg, png, svg, gif, max. 2mb</small>
+          </span>
+          <input id="images" type="file" name="files.picture" multiple/>
+        </label>
+        <label style="opacity: var(--hidden)">
+          <span>don’t fill</span>
+          <input type="hidden" autocomplete="off" name="enrico" aria-label="please do not fill this in" class="nah"/>
+        </label>
+        <label>
+          <span>Events you’ll be part of</span>
+          <select name="eventspre" multiple id="chosenEvents">
+            {% for event in events | sort(event.title) %}
+              {% if event.accept  %}
+                <option value="{{event.id}}">{{event.title}}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+          <!-- <ul id="eventList"></ul> -->
+        </label>
+        <input type="submit" id="submit" value="submit"/>
+      </form>
+    </section>
+  </main>
+  <iframe name="hiddenframe" class="hideframe"></iframe>
+{% endblock %}
+
+{% block scripts %}
+
+  <script type="module" src="/js/participant.js"></script>
+
+{% endblock %}

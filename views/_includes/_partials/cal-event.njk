@@ -1,0 +1,119 @@
+{% from "_partials/categories.njk" import setCategory %}
+
+<li 
+  {% if event.descriptionLang != "null" %}lang="{{event.descriptionLang}}"{% endif %}
+  style="{% if event.category != null %}--color-category: var(--color-{{event.category | replace(" ", "-") | replace(" ", "-") | toLowerCase }}){% else  %}--color-category: var(--color-primary){% endif %}" 
+  class="event {% if event.category %}event-{{event.category | replace(" ","-") | toLowerCase}}{% endif %} {% if event.accept != true %}refused{% endif %}" data-fulltime="{{event.fullTime}}">
+  {# TODO: keyboard nav #}
+  <a href="/events/{{event.id}}/" class="acc"></a>
+  <div class="back">{{config.assets.calEventBackground | safe}}</div>
+  <section class="modal" id="event-{{event.id}}" {% if event.htmllang %}
+     lang="{{event.htmllang}}"{% endif %}>
+    <button class="close">×</button>
+    <p class="time">
+      {% if event.opanominee == true %}
+        {{config.assets.opaLogo | safe}}
+      {% endif %}
+      <span class="month">{{event.fullTime | formatDate("UTC", "MMMM")}}</span>
+      <span class="daynum">{{event.fullTime | formatDate("UTC", "D")}}</span>
+      <span class="hour">{{event.fullTime | formatDate("UTC", "LT")}}</span>
+      <span class="tz">{{event.fullTime | formatDate("UTC", "z")}}</span>
+
+    </p>
+    <figure class="image-back">
+      {% if event.images.length > 0 %}
+        {% if event
+          .images[0]
+          .ext != '.bin' %}
+          <img src="/data/events/images/{{event.images[0].hash}}{{event.images[0].ext}}"/>
+        {% else %}
+          {{config.assets.imgPlaceHolder | safe }}
+        {% endif %}
+      {% else %}
+        {{config.assets.imgPlaceHolder | safe }}
+      {% endif %}
+    </figure>
+
+    <aside class="event-content">
+      <div class="event-meta">
+        <p class="dl-ics">
+          <a href="/data/events/ics/event-{{event.id}}.ics" download>Add to your calendar</a>
+        </p>
+        <p class="category">
+
+          {% if config.assets.categoryIcon %}
+            <span class="category-icon">{{ config.assets.categoryIcon | safe }}</span>
+          {% endif %}
+          {% if event.category %}
+            <span class="category-name">{{ event.category | safe}}</span>
+          {% else %}
+                This event is not curated yet
+              {% endif %}
+
+        </p>
+        {% if event.language != null %}
+          <p class="langs">
+            {% for lang in event.language | splitter(",") %}
+              <span class="lang">{{lang }}</span>,
+            {% endfor %}
+          </p>
+
+        {% endif %}
+        {% if event.tags != null %}
+
+          <p class="tags">
+            {% for tag in event.tags | splitter(",") %}
+              <span class="tag">{{tag }}</span>
+            {% endfor %}
+          </p>
+        {% endif %}
+
+        {% if event.socialAccount != null %}
+
+          <ul class="socials">
+            {{event.socialAccount | separateServices | safe}}
+        </ul>
+      {% endif %}
+
+    </div>
+    <div class="event-text">
+
+      <h3 class="event-title">{{event.title | markdownify | replace("<p>", "") | replace("</p>", "") | safe }}</h3>
+      {% if event.participant %}
+        <div class="from">{{event.participant | markdownify | safe}}</div>
+      {% elif event.username %}
+        <p class="from">{{event.username}}</p>
+
+      {% endif %}
+      {% if event.description %}
+        <div class="description">{{event.description | markdownify | safe }}</div>
+
+      {% endif %}
+
+      {% if config.meet.singleURL == false %}
+
+        <p class="link">Join the session via: <a href="{{config.meeting.singleURL}}">{{config.meeting.singleURL}}</a>
+
+        {% else %}
+
+          {% if event.url == '' %}
+          {% if event.urlinstructions == null or event.urlinstructions == "" %}
+            <p class="link">The link to the event will be shared soon</p>
+          {% endif %}
+
+          {% else  %}
+            <p class="link">
+              <a href="{{event.url}}">Join the session</a>.
+            </p>
+
+          {% endif %}
+        {% endif %}
+        {# if instruction to connect #}
+      {% if event.urlinstructions %}
+          <div class="urlinstructions">{{event.urlinstructions | markdownify | safe}}</div>
+      {% endif %}
+      </div>
+    </aside>
+
+  </section>
+</li>

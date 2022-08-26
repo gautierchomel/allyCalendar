@@ -1,0 +1,32 @@
+{% extends "base.njk" %}
+
+{% block bodyattribute %}{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+    {% include "_partials/header.njk" %}
+
+  <main>
+  {{collections.eventsMD | log}}
+    <section class="content">
+      <h1 class="title">{{title}}</h1>
+      {% if subtitle != null %}
+        <p class="subtitle">{{subtitle}}</p>
+      {% endif %}
+    </section>
+    <section class="intro">{{ content | safe }}</section>
+    <section class="buttons">{% include "_partials/cal-buttons.njk" %}</section>
+    <section id="calendar" style="{% if config.daytotal %}--day-total: {{dayTotal}};{% endif %}">
+      {% if config.calendarDataSource == "markdown" %}
+        {% include "_partials/cal-elementMD.njk" %}</section>
+    {% elif config.calendarDataSource == "json" %}
+      {% include "_partials/cal-element.njk" %}</section>
+  {% endif %}
+
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/js/calendar.js"></script>
+{% endblock %}

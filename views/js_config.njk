@@ -1,0 +1,16 @@
+---
+permalink: "/js/config.js"
+---
+
+const config = {
+    "siteURL": "{{config.siteURL}}",
+    "server": "{{config.strapi.server}}",
+    "apiEvents": "{{config.strapi.apiEvents}}",
+    "apiEventsUpdate": "{{config.strapi.apiEventsUpdate}}",
+    "apiParticipants": "{{config.strapi.apiParticipants}}",
+    "adminName" : "{{config.adminName}}",
+    "adminEmail" : "{{config.adminEmail}}",
+    "categories" : [{% for category in config.categories %}"{{category}}",{% endfor %}]
+}
+
+export default config;
