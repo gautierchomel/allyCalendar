@@ -4,13 +4,17 @@
     "adminName": "",
     "adminEmail": "",
     "siteLang": "fr",
-    "siteURL" : "",
-    "theme": "gautgaut",
+    "siteURL": "",
+    "theme": "accessibilityClock",
     "meeting": {
         "singleURL": ""
     },
     "calendarDataSource": "markdown",
-    "calendarYearShown": ["2021", "2022", "2023"],
+    "calendarYearShown": [
+        "2021",
+        "2022",
+        "2023"
+    ],
     "calendarDates": {
         "start": "2021-01-01",
         "end": "2021-12-31"
@@ -36,7 +40,7 @@
         "showGuestForm": false,
         "showTimezoneSelect": false,
         "logo": ""
-},
+    },
     "calButtons": {
         "showCategories": true,
         "showTimezoneSelect": true,
@@ -51,5 +55,3 @@
         "opaLogo": ""
     }
 }
-
-

@@ -9,7 +9,7 @@ permalink: /about.html
 
 The accessibility clock is tickling for European Accessibility act to take effect. 
 
-This agenda proposes to build a  timeline from the adoption (2019) to it's entry into force (2025). 
+This agenda proposes to build a timeline from adoption (2019) to entry into force (2025). 
 
 It aims to help identify ressources and lists of ressources. 
 
