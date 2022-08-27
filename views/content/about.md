@@ -1,6 +1,6 @@
 ---
 layout: singlepage.njk
-title: "Accessibility clock tickler: how will it shape our relation to digital book conception, production, diffusion and uses?"
+title: "Journey to the accessible digital book ecosytem"
 class: "about"
 tags: 
   - about

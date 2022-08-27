@@ -1,9 +1,9 @@
 ---
-id: "210927metaDisplayGuide"
+id: "metaDisplayGuide210927"
 title: "User Experience Guide for Displaying Accessibility Metadata 1.0"
 presenter: "Publishing Community Group W3C"
 structure: W3C
-fullTime: 2021-09-27T9:30:00Z
+fullTime: 2022-09-27
 timezone: UTC
 accepted: true
 language: fr
@@ -13,9 +13,9 @@ tags:
   - Display
   - UX
   - UI
-category: techniques
+category: Techniques
 permalink: "/210927_metaDisplayGuide.html"
-draft: true
+draft: false
 ---
 <!--set draft: to false to get published-->
 

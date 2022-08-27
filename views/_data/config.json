@@ -1,6 +1,6 @@
 {
     "siteTitle": "allyCalendar",
-    "siteBaseline": "",
+    "siteBaseline": "Accessibility clock tickler",
     "adminName": "",
     "adminEmail": "",
     "siteLang": "fr",
@@ -18,14 +18,11 @@
     "singlePage": false,
     "speakerList": false,
     "categories": [
-        "Demo",
-        "Performance",
-        "Discussion",
         "Workflows",
-        "Builders",
         "Workshop",
         "Techniques",
-        "Fireside Chats"
+        "Event",
+        "Demo"
     ],
     "topBar": {
         "title": "",

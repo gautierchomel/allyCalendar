@@ -45,8 +45,7 @@
   --color-fireside-chats: #7B7494;
 
   
-
-  /* --color-demo:#40A1FF;
+ --color-demo:#40A1FF;
   --color-performance:#FF4A50;
   --color-workshop:#E478ED;
   --color-workflows:#636855;
@@ -54,9 +53,10 @@
   --color-discussion:#7B7494;
   --color-long-event:#A39520;
   --color-builders:#FF7A00;
-  --color-fireside-chats: purple; */
+  --color-fireside-chats: purple; 
 
 
+ /* 
   --color-1: #ff4a50;
   --color-2: #40a1ff;
   --color-3: orange;
@@ -64,7 +64,7 @@
   --color-4: #A39520;
   --color-5: #40a1ff;
   --color-6: #5fc26e;
-  --color-7: #7B7494;
+  --color-7: #7B7494;*/
 }
 
 
