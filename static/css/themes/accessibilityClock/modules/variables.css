@@ -5,8 +5,9 @@
   --color-gradient-end: #7cddcb;
   --color-content-background: white;
   --color-background: white;
-  --color-topBar-background: rgba(255, 255, 255, .8);
-  --color-primary: purple;
+  --color-topBar-background: white;
+  --color-topBar-bottom: rgba(0, 69, 207, 0.8);
+  --color-primary: rgba(0, 69, 207, 0.8);
   --color-secondary: #3c8a8c;
   --color-body: #202020;
   --color-reverse: white;
@@ -23,18 +24,8 @@
   --font-title: var(--font-sans);
   --font-text: var(--font-sans);
 
-/* 
-  --color-demo: darkred;
-  --color-performance: #40a1ff;
-  --color-workshop: orange;
-  --color-workflows: purple;
-  --color-micropublications: #ff4a50;
-  --color-discussion: #ffe24a;
-  --color-long-event: #40a1ff;
-  --color-builders: #5fc26e;
-  --color-fireside-chats: #e478ed; */
 
-  /* colors for categories. You need to rename them to match what you get in your json file */
+  /* colors for categories. You need to rename them to match what you get in your config.json file */
   --color-demo: #ff4a50;
   --color-performance: #40a1ff;
   --color-workshop: orange;
@@ -52,7 +43,7 @@
   --color-micropublications:#2A8A39;
   --color-discussion:#7B7494;
   --color-long-event:#A39520;
-  --color-builders:#FF7A00;
+  --color-people:#FF7A00;
   --color-fireside-chats: purple; 
 
 

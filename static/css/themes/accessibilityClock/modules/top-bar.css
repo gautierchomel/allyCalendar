@@ -1,6 +1,8 @@
 /* top bar / menu */
 .topMenu {
-  background: var(--color-topBar-background, white);
+  background: var(--color-topBar-background);
+  border-bottom-color: rgba(0, 69, 207, 0.8);
+  border-bottom-width: 60px;
   position: sticky;
   top: 0;
   z-index: 10000;
