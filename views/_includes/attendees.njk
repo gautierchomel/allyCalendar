@@ -20,8 +20,8 @@
       <ul id="participants">
 
 
-        {% for participant in attendees %}
-          {% if participant.accept == true %}
+        {% for participant in collections.peopleMD %}
+          {# {% if participant.data.accept == true %} #}
             
 
 
@@ -30,22 +30,22 @@
             
 
             <figure >
-              {% if participant.picture == null or participant.picture.ext == ".bin" %}
-                <p class="letter">{{ participant.name | truncate(1)}}</p>
+              {% if participant.data.picture == null or participant.data.picture.ext == ".bin" %}
+                <p class="letter">{{ participant.data.name | truncate(1)}}</p>
               {% else  %}
-                <img src="/data/attendees/images/{{participant.picture.hash}}{{participant.picture.ext}}">
+                <img src="/images/people/{{participant.data.picture}}">
               {% endif %}
 
             </figure>
 
-            <h2 class="name">{{participant.name}}</h2>
-            {% if participant.bio != null %}
+            <h2 class="name">{{participant.data.name}}</h2>
+            {% if participant.data.bio != null %}
               <section class="bio">
-                {{participant.bio | markdownify | safe}}
+                {{participant.data.bio | markdownify | safe}}
               </section>
-              {% if participant.socials %}
+              {% if participant.data.socials %}
                 <ul class="socials">
-                  {{participant.socials | separateServices | safe }}
+                  {{participant.data.socials | separateServices | safe }}
                 </ul>
               {% endif %}
             {% endif %}
@@ -53,7 +53,7 @@
             <ul class="social"></ul>
 
           </li>
-          {% endif %}
+          {# {% endif %} #}
 
         {% endfor %}
 
