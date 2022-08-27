@@ -6,8 +6,10 @@ structure: ancienne éditrice et designer graphique aux éditions Entremonde, Pa
 fullTime: 2021-11-2T9:30:00Z
 timezone: Europe/Geneve
 accepted: true
+language: fr
 tags: 
-  - chaussette
+  - test
+category: demo
 permalink: "/test.html"
 ---
 
