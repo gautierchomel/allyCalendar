@@ -5,7 +5,7 @@
 
 {% for event in collections.eventsMD %}
 
-  {{event.data.fullTime | log}} 
+  {# {{event.data.fullTime | log}}  #}{# log les fichiers créés (à peu près) dans la console lors de npm run dev #}
     {% set day = event.data.fullTime %}
     {% if lastDate == "first" %}
    

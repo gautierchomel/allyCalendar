@@ -24,7 +24,7 @@
                     <a href="/data/events/ics/event-{{event.data.id}}.ics">Add to your calendar</a>
                 </p>
                 {% for categorie in config.categories %}
-                    {% if event.data.category == categorie.id %}
+                    {% if event.data.category == categorie %}
                         <p class="category">
                             {% if config.assets.categoryIcon %}
                                 <span class="category-icon">{{ config.assets.categoryIcon | safe}}</span>
