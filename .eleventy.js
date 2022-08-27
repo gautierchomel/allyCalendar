@@ -169,11 +169,20 @@ module.exports = function (eleventyConfig) {
     return `${url}?v=${local.getTime()}`;
   });
 
+    // declare collections in 11ty
   eleventyConfig.addCollection("eventsMD", function (collection) {
     return collection
       .getFilteredByGlob("views/content/eventList/*.md")
       .sort(function (a, b) {
         return b.fullTime - a.fullTime;
+      });
+  });
+
+  eleventyConfig.addCollection("peopleMD", function (collection) {
+    return collection
+      .getFilteredByGlob("views/content/peopleList/*.md")
+      .sort(function (a, b) {
+        return b.name - a.name;
       });
   });
 
