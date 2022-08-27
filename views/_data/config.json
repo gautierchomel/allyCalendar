@@ -1,9 +1,9 @@
 {
-    "siteTitle": "",
+    "siteTitle": "allyCalendar",
     "siteBaseline": "",
     "adminName": "",
     "adminEmail": "",
-    "siteLang": "en",
+    "siteLang": "fr",
     "siteURL" : "",
     "theme": "gautgaut",
     "meeting": {
@@ -24,6 +24,7 @@
         "Workflows",
         "Builders",
         "Workshop",
+        "Techniques",
         "Fireside Chats"
     ],
     "topBar": {
@@ -33,9 +34,9 @@
         "showArchives": true,
         "showAttendees": true,
         "showBlog": false,
-        "showForm": true,
+        "showForm": false,
         "showCalendar": true,
-        "showGuestForm": true,
+        "showGuestForm": false,
         "showTimezoneSelect": false,
         "logo": ""
 },
