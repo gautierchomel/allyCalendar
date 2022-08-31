@@ -1,7 +1,7 @@
 <li  {% if event.descriptionLang != "null" %}lang="{{event.descriptionLang}}"{% endif %} style="{% if event.data.category != null %}--color-category: var(--color-{{event.data.category}}){% else  %}--color-category: var(--color-primary){% endif %}" class="event {% if event.data.category %}event-{{event.data.category}}{% endif %} {% if event.data.accept != true %}refused{% endif %}" data-fulltime="{{event.data.fullTime}}">
     {# TODO: keyboard nav #}
     {# note the singular event in the url to differenciate JSON / Markdown #}
-    <a href="/event/{{event.data.id}}/" class="acc"></a>
+    <a href="/events/{{event.data.id}}/" class="acc"></a>
     <div class="back">{{config.assets.calEventBackground | safe}}</div>
     <section class="modal" id="event-{{event.data.id}}" {% if event.data.htmllang %}lang="{{event.data.htmllang}}"{% endif %}>
         <button class="close">×</button>
