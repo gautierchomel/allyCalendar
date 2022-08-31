@@ -1,3 +1,8 @@
+npm -i
+npm run dev
+
+
+
 # Open calendar
 
 When the openpublishingfest started, we needed to have a place to allow people to propose events, accept them and show ’em on a calendar for the public to consult and get ideas about when things happens.
