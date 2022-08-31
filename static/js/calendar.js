@@ -27,7 +27,6 @@ function build() {
   if (document.querySelector("#search")) {
     document.querySelector("#search").removeAttribute("disabled");
   }
-
   updateCalendar(momentz.tz.guess(), lang);
 }
 
@@ -171,29 +170,29 @@ function updateCalendar(targetDate, lang = getNavigatorLanguage()) {
     event.querySelector(".hour").innerHTML = showDate.format("LT");
     event.querySelector(".tz").innerHTML = targetTime.format("z");
     event.dataset.updatedTime = targetTime.clone().format();
-    event.dataset.updatedDay = targetTime.locale("en-us").format("DD MMMM");
-
+    event.dataset.updatedDay = targetTime.locale("en-us").format("DD MMMM YYYY");
     // note first and last day to recreate the calendar
     var newItem = targetTime.format("L");
     allDays.indexOf(newItem) === -1 ? allDays.push(newItem) : "";
   });
-
+  console.log(allDays)
   // find number of days
-  var timeLength = momentz(allDays[allDays.length - 1], "L").diff(
+  
+  var timeLength = Math.abs(momentz(allDays[allDays.length - 1], "L").diff(
     momentz(allDays[0], "L"),
     "days"
-  );
-
+  ));
+  console.log(timeLength)
   // create a new calendar
   let newCal = document.createElement("section");
-  newCal.classList.id = "calendarNew";
+  newCal.classList.add = "calendarNew";
 
   // create a list for each day
-  for (let i = 0; i < timeLength + 1; i = i + 1) {
+  for (let i = timeLength * -1 ; i < timeLength + 1; i = i + 1) {
     const dayList = document.createElement("ul");
     let day = moment(allDays[0]).add(i, "days");
     day.locale(lang);
-    dayList.classList.add(`d-${day.format("DDDD")}`);
+    dayList.classList.add(`y-${day.format("YYYY")}d-${day.format("DDDD")}`);
     dayList.classList.add(`${day.clone().locale("en").format("dddd")}`);
     dayList.classList.add(`day`);
     dayList.classList.add("emptyday");
@@ -203,10 +202,11 @@ function updateCalendar(targetDate, lang = getNavigatorLanguage()) {
     )}</span>
         <span class="number">${day.format(
           "D"
-        )}</span> <span class="month">${day.format("MMMM")}</span></h2>
+        )}</span> <span class="month">${day.format("MMMM")}</span>
+        <span class="year">${day.format("YYYY")}</span></h2>
         `;
     document.querySelectorAll(".event").forEach((event) => {
-      if (event.dataset.updatedDay == day.locale("en-US").format("DD MMMM")) {
+      if (event.dataset.updatedDay == day.locale("en-US").format("DD MMMM YYYY")) {
         dayList.appendChild(event);
         dayList.classList.remove("emptyday");
       }

@@ -3,7 +3,7 @@ id: "event01"
 title: Les différentes étapes de l’édition
 presenter: Léa Gallon
 structure: ancienne éditrice et designer graphique aux éditions Entremonde, Paris & Genève
-fullTime: 2021-11-2T9:30:00Z
+fullTime: 2022-11-2T9:30:00Z
 timezone: Europe/Geneve
 accepted: true
 language: fr

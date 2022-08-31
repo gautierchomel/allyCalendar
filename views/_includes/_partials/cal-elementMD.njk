@@ -1,9 +1,8 @@
 {# rebuild any calendar date based on fullTime in json #}
-
-
 {% set lastDate = "first" %}
 
 {% for event in collections.eventsMD %}
+
 
   {# {{event.data.fullTime | log}}  #}{# log les fichiers créés (à peu près) dans la console lors de npm run dev #}
     {% set day = event.data.fullTime %}
@@ -14,6 +13,7 @@
           <span class="day-letter">{{event.data.fullTime | formatDate("UTC", "dddd")}}</span>
           <span class="number">{{event.data.fullTime | formatDate("UTC", "D")}}</span>
           <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span></h2>
+          <span class="year">{{event.data.fullTime | formatDate("UTC", "YYYY")}}</span></h2>
     
        {% if event.data.accepted == true %}
         {% include "_partials/cal-eventMD.njk" %}
@@ -34,9 +34,9 @@
           <span class="day-letter">{{event.data.fullTime | formatDate("UTC", "dddd")}}</span>
           <span class="number">{{event.data.fullTime | formatDate("UTC", "D")}}</span>
           <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span></h2>
-          {% if event.data.accepted == true %}
-        {% include "_partials/cal-eventMD.njk" %}
-        {% endif %}
+          {#{% if event.data.accepted == true %} #}   
+            {% include "_partials/cal-eventMD.njk" %}
+          {#{% endif %}#}
       {% endif %}
 
       {% set lastDate = day %}

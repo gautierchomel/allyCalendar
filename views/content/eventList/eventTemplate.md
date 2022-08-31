@@ -3,7 +3,7 @@ id: "eventTemplate"
 title: title
 presenter: name
 structure: structure
-fullTime: 2021-11-2T9:30:00Z
+fullTime: 2021-11-10T9:30:00Z
 timezone: Europe/Geneve
 accepted: true
 language: fr

@@ -23,6 +23,7 @@ class: "event-page"
     {% if event.data.title != null %}
       <section class="modal">
         <p class="time">
+          <span class="year">{{event.data.fullTime | formatDate("UTC", "YYYY")}}</span>
           <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span>
           <span class="daynum">{{event.data.fullTime | formatDate("UTC", "DD")}}</span>
           <span class="hour">{{event.data.fullTime | formatDate("UTC", "LT")}}</span>

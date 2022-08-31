@@ -1,6 +1,8 @@
 {# rebuild any calendar date based on fullTime in json #}
 
-{% set lastDate = "first" %}
+{% set lastDate = "first" %}  
+
+
 {% for event in events | sort(attribute="fullTime") %}
 
   {% if event.title != null and event.fullTime | formatDate("UTC", "YYYY") in config.calendarYearShown %}
@@ -12,6 +14,7 @@
           <span class="day-letter">{{event.fullTime | formatDate("UTC", "dddd")}}</span>
           <span class="number">{{event.fullTime | formatDate("UTC", "DD")}}</span>
           <span class="month">{{event.fullTime | formatDate("UTC", "MMMM")}}</span>
+          <span class="year">{{event.fullTime | formatDate("UTC", "YYYY")}}</span>
         </h2>
         {% if event.accept == true %}
           {% include "_partials/cal-event.njk" %}
@@ -30,7 +33,7 @@
           <span class="day-letter">{{event.fullTime | formatDate("UTC", "dddd")}}</span>
           <span class="number">{{event.fullTime | formatDate("UTC", "DD")}}</span>
           <span class="month">{{event.fullTime | formatDate("UTC", "MMMM")}}</span></h2>
-
+          <span class="year">{{event.fullTime | formatDate("UTC", "YYYY")}}</span>
         {% if event.accept == true %}
           {% include "_partials/cal-event.njk" %}
         {% endif %}
