@@ -12,7 +12,7 @@
         <h2>
           <span class="day-letter">{{event.data.fullTime | formatDate("UTC", "dddd")}}</span>
           <span class="number">{{event.data.fullTime | formatDate("UTC", "D")}}</span>
-          <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span></h2>
+          <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span>
           <span class="year">{{event.data.fullTime | formatDate("UTC", "YYYY")}}</span></h2>
     
        {% if event.data.accepted == true %}
@@ -33,7 +33,9 @@
         <h2>
           <span class="day-letter">{{event.data.fullTime | formatDate("UTC", "dddd")}}</span>
           <span class="number">{{event.data.fullTime | formatDate("UTC", "D")}}</span>
-          <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span></h2>
+          <span class="month">{{event.data.fullTime | formatDate("UTC", "MMMM")}}</span>
+          <span class="year">{{event.data.fullTime | formatDate("UTC", "YYYY")}}</span></h2>
+    
           {#{% if event.data.accepted == true %} #}   
             {% include "_partials/cal-eventMD.njk" %}
           {#{% endif %}#}

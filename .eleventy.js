@@ -174,7 +174,9 @@ module.exports = function (eleventyConfig) {
     return collection
       .getFilteredByGlob("views/content/eventList/*.md")
       .sort(function (a, b) {
-        return b.fullTime - a.fullTime;
+        let day1 = new Date(a.data.fullTime).valueOf() 
+        let day2 = new Date(b.data.fullTime).valueOf()
+        return day1 - day2;
       });
   });
 
