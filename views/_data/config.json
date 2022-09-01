@@ -11,12 +11,14 @@
     },
     "calendarDataSource": "markdown",
     "calendarYearShown": [
+        "2019",
+        "2020",
         "2021",
         "2022",
         "2023"
     ],
     "calendarDates": {
-        "start": "2020-01-01",
+        "start": "2019-01-01",
         "end": "2040-12-31"
     },
     "singlePage": false,
@@ -26,6 +28,7 @@
         "Workshop",
         "Techniques",
         "Event",
+        "Legals",
         "Demo"
     ],
     "topBar": {
